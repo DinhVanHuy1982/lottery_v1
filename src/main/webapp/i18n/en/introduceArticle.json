@@ -1,0 +1,28 @@
+{
+  "lotteryApp": {
+    "introduceArticle": {
+      "home": {
+        "title": "Introduce Articles",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Introduce Article",
+        "createOrEditLabel": "Create or edit a Introduce Article",
+        "notFound": "No Introduce Articles found"
+      },
+      "created": "A new Introduce Article is created with identifier {{ param }}",
+      "updated": "A Introduce Article is updated with identifier {{ param }}",
+      "deleted": "A Introduce Article is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Introduce Article {{ id }}?"
+      },
+      "detail": {
+        "title": "Introduce Article"
+      },
+      "id": "Id",
+      "code": "Code",
+      "articleCode": "Article Code",
+      "title": "Title",
+      "content": "Content",
+      "fileId": "File Id"
+    }
+  }
+}

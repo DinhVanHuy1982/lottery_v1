@@ -1,0 +1,25 @@
+{
+  "lotteryApp": {
+    "functions": {
+      "home": {
+        "title": "Functions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Functions",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Functions",
+        "notFound": "No Functions found"
+      },
+      "created": "Một Functions mới được tạo với định danh {{ param }}",
+      "updated": "Một Functions cập nhật với định danh {{ param }}",
+      "deleted": "Một Functions đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Functions {{ id }}?"
+      },
+      "detail": {
+        "title": "Functions"
+      },
+      "id": "Id",
+      "name": "Name",
+      "code": "Code"
+    }
+  }
+}

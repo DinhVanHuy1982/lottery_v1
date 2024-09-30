@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (appParams) {
+      <div>
+        <h2 data-cy="appParamsDetailsHeading"><span jhiTranslate="lotteryApp.appParams.detail.title">App Params</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="lotteryApp.appParams.id">Id</span></dt>
+          <dd>
+            <span>{{ appParams.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.appParams.code">Code</span></dt>
+          <dd>
+            <span>{{ appParams.code }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.appParams.value">Value</span></dt>
+          <dd>
+            <span>{{ appParams.value }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.appParams.type">Type</span></dt>
+          <dd>
+            <span>{{ appParams.type }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/app-params', appParams.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

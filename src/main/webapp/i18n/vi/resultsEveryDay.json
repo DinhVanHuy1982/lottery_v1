@@ -1,0 +1,26 @@
+{
+  "lotteryApp": {
+    "resultsEveryDay": {
+      "home": {
+        "title": "Results Every Days",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Results Every Day",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Results Every Day",
+        "notFound": "No Results Every Days found"
+      },
+      "created": "Một Results Every Day mới được tạo với định danh {{ param }}",
+      "updated": "Một Results Every Day cập nhật với định danh {{ param }}",
+      "deleted": "Một Results Every Day đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Results Every Day {{ id }}?"
+      },
+      "detail": {
+        "title": "Results Every Day"
+      },
+      "id": "Id",
+      "resultDate": "Result Date",
+      "prizeCode": "Prize Code",
+      "result": "Result"
+    }
+  }
+}

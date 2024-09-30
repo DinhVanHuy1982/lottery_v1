@@ -1,0 +1,31 @@
+{
+  "lotteryApp": {
+    "prizes": {
+      "home": {
+        "title": "Prizes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Prizes",
+        "createOrEditLabel": "Create or edit a Prizes",
+        "notFound": "No Prizes found"
+      },
+      "created": "A new Prizes is created with identifier {{ param }}",
+      "updated": "A Prizes is updated with identifier {{ param }}",
+      "deleted": "A Prizes is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Prizes {{ id }}?"
+      },
+      "detail": {
+        "title": "Prizes"
+      },
+      "id": "Id",
+      "code": "Code",
+      "articleCode": "Article Code",
+      "levelCup": "Level Cup",
+      "numberPrize": "Number Prize",
+      "createTime": "Create Time",
+      "createName": "Create Name",
+      "updateTime": "Update Time",
+      "updateName": "Update Name"
+    }
+  }
+}

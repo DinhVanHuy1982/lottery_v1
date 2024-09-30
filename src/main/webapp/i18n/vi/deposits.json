@@ -1,0 +1,33 @@
+{
+  "lotteryApp": {
+    "deposits": {
+      "home": {
+        "title": "Deposits",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Deposits",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Deposits",
+        "notFound": "No Deposits found"
+      },
+      "created": "Một Deposits mới được tạo với định danh {{ param }}",
+      "updated": "Một Deposits cập nhật với định danh {{ param }}",
+      "deleted": "Một Deposits đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Deposits {{ id }}?"
+      },
+      "detail": {
+        "title": "Deposits"
+      },
+      "id": "Id",
+      "articleCode": "Article Code",
+      "netwrokCard": "Netwrok Card",
+      "valueCard": "Value Card",
+      "createTime": "Create Time",
+      "seriCard": "Seri Card",
+      "codeCard": "Code Card",
+      "status": "Status",
+      "userAppose": "User Appose",
+      "valueChoice": "Value Choice",
+      "phoneNumber": "Phone Number"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "lotteryApp": {
+    "roleFunctions": {
+      "home": {
+        "title": "Role Functions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Role Functions",
+        "createOrEditLabel": "Create or edit a Role Functions",
+        "notFound": "No Role Functions found"
+      },
+      "created": "A new Role Functions is created with identifier {{ param }}",
+      "updated": "A Role Functions is updated with identifier {{ param }}",
+      "deleted": "A Role Functions is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Role Functions {{ id }}?"
+      },
+      "detail": {
+        "title": "Role Functions"
+      },
+      "id": "Id",
+      "code": "Code",
+      "roleCode": "Role Code",
+      "functionCode": "Function Code"
+    }
+  }
+}

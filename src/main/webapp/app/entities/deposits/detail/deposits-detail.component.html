@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (deposits) {
+      <div>
+        <h2 data-cy="depositsDetailsHeading"><span jhiTranslate="lotteryApp.deposits.detail.title">Deposits</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="lotteryApp.deposits.id">Id</span></dt>
+          <dd>
+            <span>{{ deposits.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.deposits.articleCode">Article Code</span></dt>
+          <dd>
+            <span>{{ deposits.articleCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.deposits.netwrokCard">Netwrok Card</span></dt>
+          <dd>
+            <span>{{ deposits.netwrokCard }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.deposits.valueCard">Value Card</span></dt>
+          <dd>
+            <span>{{ deposits.valueCard }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.deposits.createTime">Create Time</span></dt>
+          <dd>
+            <span>{{ deposits.createTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.deposits.seriCard">Seri Card</span></dt>
+          <dd>
+            <span>{{ deposits.seriCard }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.deposits.codeCard">Code Card</span></dt>
+          <dd>
+            <span>{{ deposits.codeCard }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.deposits.status">Status</span></dt>
+          <dd>
+            <span>{{ deposits.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.deposits.userAppose">User Appose</span></dt>
+          <dd>
+            <span>{{ deposits.userAppose }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.deposits.valueChoice">Value Choice</span></dt>
+          <dd>
+            <span>{{ deposits.valueChoice }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.deposits.phoneNumber">Phone Number</span></dt>
+          <dd>
+            <span>{{ deposits.phoneNumber }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/deposits', deposits.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

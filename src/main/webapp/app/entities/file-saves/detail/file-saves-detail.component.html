@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (fileSaves) {
+      <div>
+        <h2 data-cy="fileSavesDetailsHeading"><span jhiTranslate="lotteryApp.fileSaves.detail.title">File Saves</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="lotteryApp.fileSaves.id">Id</span></dt>
+          <dd>
+            <span>{{ fileSaves.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.fileSaves.fileId">File Id</span></dt>
+          <dd>
+            <span>{{ fileSaves.fileId }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.fileSaves.fileName">File Name</span></dt>
+          <dd>
+            <span>{{ fileSaves.fileName }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.fileSaves.filePath">File Path</span></dt>
+          <dd>
+            <span>{{ fileSaves.filePath }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/file-saves', fileSaves.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

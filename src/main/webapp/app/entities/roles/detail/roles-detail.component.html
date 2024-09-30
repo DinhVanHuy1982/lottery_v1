@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (roles) {
+      <div>
+        <h2 data-cy="rolesDetailsHeading"><span jhiTranslate="lotteryApp.roles.detail.title">Roles</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="lotteryApp.roles.id">Id</span></dt>
+          <dd>
+            <span>{{ roles.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.roles.name">Name</span></dt>
+          <dd>
+            <span>{{ roles.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.roles.code">Code</span></dt>
+          <dd>
+            <span>{{ roles.code }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.roles.status">Status</span></dt>
+          <dd>
+            <span>{{ roles.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.roles.description">Description</span></dt>
+          <dd>
+            <span>{{ roles.description }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.roles.createTime">Create Time</span></dt>
+          <dd>
+            <span>{{ roles.createTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.roles.createName">Create Name</span></dt>
+          <dd>
+            <span>{{ roles.createName }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.roles.updateName">Update Name</span></dt>
+          <dd>
+            <span>{{ roles.updateName }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.roles.updateTime">Update Time</span></dt>
+          <dd>
+            <span>{{ roles.updateTime | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/roles', roles.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

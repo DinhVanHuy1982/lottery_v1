@@ -1,0 +1,232 @@
+// run cmd: jhipster import-jdl lottery.jdl
+
+entity AppParams{
+    id Long, // id
+    code String required unique maxlength(50),
+    value String maxlength(150),
+    type String maxlength(50),
+}
+dto AppParams with mapstruct
+paginate AppParams with pagination
+service AppParams with serviceClass
+service AppParams with serviceImpl
+
+// Bảng nhóm bài viết
+entity ArticleGroup{
+    id Long,
+    code String required maxlength(50),
+    title String maxlength(500),
+    mainContent String maxlength(2000),
+    createTime Instant, // thời gian tạo mới
+    updateTime Instant, // thời gian cập nhật
+    createName String maxlength(150),
+    updateName String maxlength(150),
+    fileName String maxlength(500),
+    filePath String maxlength(1000),
+    fileId String maxlength(250),
+}
+dto ArticleGroup with mapstruct
+paginate ArticleGroup with pagination
+service ArticleGroup with serviceClass
+service ArticleGroup with serviceImpl
+
+// Bảng thông tin nhóm bài viết
+entity IntroduceArticleGroup{
+    id Long,
+    code String required maxlength(50),
+    articleGroupCode String maxlength(50),
+    fileId String maxlength(250),
+    titleIntroduce String maxlength(500),
+    contentIntroduce String maxlength(2000),
+}
+dto IntroduceArticleGroup with mapstruct
+paginate IntroduceArticleGroup with pagination
+service IntroduceArticleGroup with serviceClass
+service IntroduceArticleGroup with serviceImpl
+
+entity Articles{
+    id Long,
+    code String required maxlength(50),
+    title String maxlength(500),
+    content String maxlength(2000),
+    fileId String maxlength(250),
+    updateName String maxlength(50),
+    numberChoice Long, // số lượng lựa chọn
+    numberOfDigits Long, // số chữ số
+    timeStart String , // thời gian bắt đầu quay định dạng HH:mm
+    timeEnd String ,// thời gian kết thúc quay định dạng HH:mm
+}
+dto Articles with mapstruct
+paginate Articles with pagination
+service Articles with serviceClass
+service Articles with serviceImpl
+
+entity IntroduceArticle{
+    id Long,
+    code String maxlength(50),
+    articleCode String maxlength(50),
+    title String maxlength(500),
+    content String maxlength(2000),
+    fileId String maxlength(250),// file avatar
+}
+dto IntroduceArticle with mapstruct
+paginate IntroduceArticle with pagination
+service IntroduceArticle with serviceClass
+service IntroduceArticle with serviceImpl
+
+entity Prizes{ // bảng cấu hình giải thưởng
+	id Long,
+    code String maxlength(50),
+    articleCode String maxlength(50),
+    levelCup String maxlength(50), // giải nhất, nhì trong app_params với type = LEVEL_CUP
+    numberPrize Long, // cấu hình số lượng giải theo levelCup
+    createTime Instant,
+    createName String maxlength(50),
+    updateTime Instant,
+    updateName String maxlength(50),
+}
+dto Prizes with mapstruct
+paginate Prizes with pagination
+service Prizes with serviceClass
+service Prizes with serviceImpl
+
+entity ResultsEveryDay{
+	id Long,
+    resultDate Instant, // kết quả theo ngày
+    prizeCode  String maxlength(50), // mã giải thưởng
+	result String maxlength(100), // giá trị các giải thưởng nối với nhau bằng dấu phẩy, số lượng được cấu hình trong bảng Prize
+}
+dto ResultsEveryDay with mapstruct
+paginate ResultsEveryDay with pagination
+service ResultsEveryDay with serviceClass
+service ResultsEveryDay with serviceImpl
+
+entity RandomResults{
+	id Long,
+    randomDate Instant, // kết quả theo ngày
+    prizeCode  String maxlength(50), // mã giải thưởng
+	result String maxlength(100), // giá trị các giải thưởng nối với nhau bằng dấu phẩy, số lượng được cấu hình trong bảng Prize
+	randomUserPlay Long, // số lượng người chơi randomn
+    userPlay Long, // số lượng người chơi thực tế,
+    randomUserSuccess Long , //random số lượng người chơi trúng
+    userSuccess Long, // số lượng người trúng
+}
+dto RandomResults with mapstruct
+paginate RandomResults with pagination
+service RandomResults with serviceClass
+service RandomResults with serviceImpl
+
+entity Deposits{
+	id Long,
+    articleCode String maxlength(50), // số lượng số lựa chọn, được cấu hình trong bảng article.numberChoice và kiểu số article.digits
+    netwrokCard String maxlength(50), // mã nhà mạng, cấu hình trong bảng app_params với type NETWORK_CARD
+    valueCard String maxlength(50), // giá trị thẻ, kết nối với bảng app_params với type VALUE_CARD
+    createTime Instant, // ngày chọn số
+    seriCard String maxlength(50), // số seri thẻ,
+    codeCard String maxlength(50), // mã thẻ cào
+    status Long, // trạng thái phê duyệt của thẻ cào 0:đang chờ, 1 đã phê duyệt, 2: không thành công
+    userAppose String maxlength(50), // người phê duyệt
+    valueChoice String maxlength(100), // giá trị mà người dùng được cho số
+	phoneNumber String maxlength(50), // số điện thoại nhận số, key của người dùng ***
+
+}
+dto Deposits with mapstruct
+paginate Deposits with pagination
+service Deposits with serviceClass
+service Deposits with serviceImpl
+
+entity FileSaves{
+	id Long,
+    fileId String maxlength(250),
+    fileName String maxlength(500),
+    filePath String maxlength(1000)
+}
+dto FileSaves with mapstruct
+paginate FileSaves with pagination
+service FileSaves with serviceClass
+service FileSaves with serviceImpl
+
+
+
+entity Roles{
+	id Long,
+    name String maxlength(100),
+    code String maxlength(50),
+    status Long, // trạng thái nhóm quyền 0: Inactive, 1: Active
+    description String maxlength(500),
+    createTime Instant,
+    createName String maxlength(50),
+    updateName String maxlength(50),
+    updateTime Instant,
+}
+dto Roles with mapstruct
+paginate Roles with pagination
+service Roles with serviceClass
+service Roles with serviceImpl
+
+entity RoleFunctions{
+	id Long,
+    code String maxlength(50),
+    roleCode String maxlength(50),
+    functionCode String maxlength(50)
+}
+dto RoleFunctions with mapstruct
+paginate RoleFunctions with pagination
+service RoleFunctions with serviceClass
+service RoleFunctions with serviceImpl
+
+entity Functions{
+	id Long,
+    name String maxlength(100),
+    code String maxlength(50),
+}
+dto Functions with mapstruct
+paginate Functions with pagination
+service Functions with serviceClass
+service Functions with serviceImpl
+
+entity Actions{
+	id Long,
+    name String maxlength(100),
+    code String maxlength(50),
+}
+dto Actions with mapstruct
+paginate Actions with pagination
+service Actions with serviceClass
+service Actions with serviceImpl
+
+entity RoleFunctionAction{
+	id Long,
+    roleFunctionCode String maxlength(50),
+    actionCode String maxlength(50)
+}
+dto RoleFunctionAction with mapstruct
+paginate RoleFunctionAction with pagination
+service RoleFunctionAction with serviceClass
+service RoleFunctionAction with serviceImpl
+
+//    "@ag-grid-community/styles": "^31.1.0",
+//    "@angular/common": "18.2.5",
+//    "@angular/compiler": "18.2.5",
+//    "@angular/core": "18.2.5",
+//    "@angular/forms": "18.2.5",
+//    "@angular/localize": "18.2.5",
+//    "@angular/platform-browser": "18.2.5",
+//    "@angular/platform-browser-dynamic": "18.2.5",
+//    "@angular/router": "18.2.5",
+//    "@fortawesome/angular-fontawesome": "0.15.0",
+//    "@fortawesome/fontawesome-svg-core": "6.6.0",
+//    "@fortawesome/free-solid-svg-icons": "6.6.0",
+//    "@ng-bootstrap/ng-bootstrap": "17.0.1",
+//    "@ngx-translate/core": "15.0.0",
+//    "@ngx-translate/http-loader": "8.0.0",
+//    "@popperjs/core": "2.11.8",
+//    "ag-grid-angular": "^31.3.4",
+//    "ag-grid-community": "^31.3.4",
+//    "ag-grid-enterprise": "^31.3.4",
+//    "bootstrap": "5.3.3",
+//    "dayjs": "1.11.13",
+//    "ngx-infinite-scroll": "18.0.0",
+//    "rxjs": "7.8.1",
+//    "tslib": "2.7.0",
+//    "zone.js": "0.14.10"

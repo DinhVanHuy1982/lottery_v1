@@ -1,0 +1,153 @@
+<div>
+  <h2 id="page-heading" data-cy="RandomResultsHeading">
+    <span jhiTranslate="lotteryApp.randomResults.home.title">Random Results</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="lotteryApp.randomResults.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-random-results"
+        [routerLink]="['/random-results/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="lotteryApp.randomResults.home.createLabel">Thêm mới một Random Results</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (randomResults?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="lotteryApp.randomResults.home.notFound">No Random Results found</span>
+    </div>
+  }
+
+  @if (randomResults && randomResults.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.randomResults.id">Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="randomDate">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.randomResults.randomDate">Random Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="prizeCode">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.randomResults.prizeCode">Prize Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="result">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.randomResults.result">Result</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="randomUserPlay">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.randomResults.randomUserPlay">Random User Play</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="userPlay">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.randomResults.userPlay">User Play</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="randomUserSuccess">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.randomResults.randomUserSuccess">Random User Success</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="userSuccess">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.randomResults.userSuccess">User Success</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (randomResults of randomResults; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/random-results', randomResults.id, 'view']">{{ randomResults.id }}</a>
+              </td>
+              <td>{{ randomResults.randomDate | formatMediumDatetime }}</td>
+              <td>{{ randomResults.prizeCode }}</td>
+              <td>{{ randomResults.result }}</td>
+              <td>{{ randomResults.randomUserPlay }}</td>
+              <td>{{ randomResults.userPlay }}</td>
+              <td>{{ randomResults.randomUserSuccess }}</td>
+              <td>{{ randomResults.userSuccess }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/random-results', randomResults.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Xem</span>
+                  </a>
+
+                  <a [routerLink]="['/random-results', randomResults.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Sửa</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(randomResults)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Xóa</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (randomResults && randomResults.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

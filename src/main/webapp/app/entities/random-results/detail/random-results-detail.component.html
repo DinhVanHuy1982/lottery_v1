@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (randomResults) {
+      <div>
+        <h2 data-cy="randomResultsDetailsHeading"><span jhiTranslate="lotteryApp.randomResults.detail.title">Random Results</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="lotteryApp.randomResults.id">Id</span></dt>
+          <dd>
+            <span>{{ randomResults.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.randomResults.randomDate">Random Date</span></dt>
+          <dd>
+            <span>{{ randomResults.randomDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.randomResults.prizeCode">Prize Code</span></dt>
+          <dd>
+            <span>{{ randomResults.prizeCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.randomResults.result">Result</span></dt>
+          <dd>
+            <span>{{ randomResults.result }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.randomResults.randomUserPlay">Random User Play</span></dt>
+          <dd>
+            <span>{{ randomResults.randomUserPlay }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.randomResults.userPlay">User Play</span></dt>
+          <dd>
+            <span>{{ randomResults.userPlay }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.randomResults.randomUserSuccess">Random User Success</span></dt>
+          <dd>
+            <span>{{ randomResults.randomUserSuccess }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.randomResults.userSuccess">User Success</span></dt>
+          <dd>
+            <span>{{ randomResults.userSuccess }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/random-results', randomResults.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

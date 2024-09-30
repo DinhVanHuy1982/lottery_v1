@@ -1,0 +1,89 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-role-functions-heading"
+        data-cy="RoleFunctionsCreateUpdateHeading"
+        jhiTranslate="lotteryApp.roleFunctions.home.createOrEditLabel"
+      >
+        Thêm mới hoặc cập nhật Role Functions
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="lotteryApp.roleFunctions.id" for="field_id">Id</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.roleFunctions.code" for="field_code">Code</label>
+          <input type="text" class="form-control" name="code" id="field_code" data-cy="code" formControlName="code" />
+          @if (editForm.get('code')!.invalid && (editForm.get('code')!.dirty || editForm.get('code')!.touched)) {
+            <div>
+              @if (editForm.get('code')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }"
+                  >Trường này không được vượt quá 50 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.roleFunctions.roleCode" for="field_roleCode">Role Code</label>
+          <input type="text" class="form-control" name="roleCode" id="field_roleCode" data-cy="roleCode" formControlName="roleCode" />
+          @if (editForm.get('roleCode')!.invalid && (editForm.get('roleCode')!.dirty || editForm.get('roleCode')!.touched)) {
+            <div>
+              @if (editForm.get('roleCode')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }"
+                  >Trường này không được vượt quá 50 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.roleFunctions.functionCode" for="field_functionCode">Function Code</label>
+          <input
+            type="text"
+            class="form-control"
+            name="functionCode"
+            id="field_functionCode"
+            data-cy="functionCode"
+            formControlName="functionCode"
+          />
+          @if (editForm.get('functionCode')!.invalid && (editForm.get('functionCode')!.dirty || editForm.get('functionCode')!.touched)) {
+            <div>
+              @if (editForm.get('functionCode')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }"
+                  >Trường này không được vượt quá 50 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Lưu</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

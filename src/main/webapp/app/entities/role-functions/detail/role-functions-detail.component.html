@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (roleFunctions) {
+      <div>
+        <h2 data-cy="roleFunctionsDetailsHeading"><span jhiTranslate="lotteryApp.roleFunctions.detail.title">Role Functions</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="lotteryApp.roleFunctions.id">Id</span></dt>
+          <dd>
+            <span>{{ roleFunctions.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.roleFunctions.code">Code</span></dt>
+          <dd>
+            <span>{{ roleFunctions.code }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.roleFunctions.roleCode">Role Code</span></dt>
+          <dd>
+            <span>{{ roleFunctions.roleCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.roleFunctions.functionCode">Function Code</span></dt>
+          <dd>
+            <span>{{ roleFunctions.functionCode }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/role-functions', roleFunctions.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "lotteryApp": {
+    "articles": {
+      "home": {
+        "title": "Articles",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Articles",
+        "createOrEditLabel": "Create or edit a Articles",
+        "notFound": "No Articles found"
+      },
+      "created": "A new Articles is created with identifier {{ param }}",
+      "updated": "A Articles is updated with identifier {{ param }}",
+      "deleted": "A Articles is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Articles {{ id }}?"
+      },
+      "detail": {
+        "title": "Articles"
+      },
+      "id": "Id",
+      "code": "Code",
+      "title": "Title",
+      "content": "Content",
+      "fileId": "File Id",
+      "updateName": "Update Name",
+      "numberChoice": "Number Choice",
+      "numberOfDigits": "Number Of Digits",
+      "timeStart": "Time Start",
+      "timeEnd": "Time End"
+    }
+  }
+}

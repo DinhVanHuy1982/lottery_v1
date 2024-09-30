@@ -1,0 +1,177 @@
+<div>
+  <h2 id="page-heading" data-cy="DepositsHeading">
+    <span jhiTranslate="lotteryApp.deposits.home.title">Deposits</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="lotteryApp.deposits.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-deposits"
+        [routerLink]="['/deposits/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="lotteryApp.deposits.home.createLabel">Thêm mới một Deposits</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (deposits?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="lotteryApp.deposits.home.notFound">No Deposits found</span>
+    </div>
+  }
+
+  @if (deposits && deposits.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.deposits.id">Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="articleCode">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.deposits.articleCode">Article Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="netwrokCard">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.deposits.netwrokCard">Netwrok Card</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="valueCard">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.deposits.valueCard">Value Card</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createTime">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.deposits.createTime">Create Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="seriCard">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.deposits.seriCard">Seri Card</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="codeCard">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.deposits.codeCard">Code Card</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.deposits.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="userAppose">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.deposits.userAppose">User Appose</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="valueChoice">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.deposits.valueChoice">Value Choice</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phoneNumber">
+              <div class="d-flex">
+                <span jhiTranslate="lotteryApp.deposits.phoneNumber">Phone Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (deposits of deposits; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/deposits', deposits.id, 'view']">{{ deposits.id }}</a>
+              </td>
+              <td>{{ deposits.articleCode }}</td>
+              <td>{{ deposits.netwrokCard }}</td>
+              <td>{{ deposits.valueCard }}</td>
+              <td>{{ deposits.createTime | formatMediumDatetime }}</td>
+              <td>{{ deposits.seriCard }}</td>
+              <td>{{ deposits.codeCard }}</td>
+              <td>{{ deposits.status }}</td>
+              <td>{{ deposits.userAppose }}</td>
+              <td>{{ deposits.valueChoice }}</td>
+              <td>{{ deposits.phoneNumber }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/deposits', deposits.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Xem</span>
+                  </a>
+
+                  <a [routerLink]="['/deposits', deposits.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Sửa</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(deposits)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Xóa</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (deposits && deposits.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

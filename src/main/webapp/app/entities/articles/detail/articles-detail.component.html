@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (articles) {
+      <div>
+        <h2 data-cy="articlesDetailsHeading"><span jhiTranslate="lotteryApp.articles.detail.title">Articles</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="lotteryApp.articles.id">Id</span></dt>
+          <dd>
+            <span>{{ articles.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articles.code">Code</span></dt>
+          <dd>
+            <span>{{ articles.code }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articles.title">Title</span></dt>
+          <dd>
+            <span>{{ articles.title }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articles.content">Content</span></dt>
+          <dd>
+            <span>{{ articles.content }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articles.fileId">File Id</span></dt>
+          <dd>
+            <span>{{ articles.fileId }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articles.updateName">Update Name</span></dt>
+          <dd>
+            <span>{{ articles.updateName }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articles.numberChoice">Number Choice</span></dt>
+          <dd>
+            <span>{{ articles.numberChoice }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articles.numberOfDigits">Number Of Digits</span></dt>
+          <dd>
+            <span>{{ articles.numberOfDigits }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articles.timeStart">Time Start</span></dt>
+          <dd>
+            <span>{{ articles.timeStart }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articles.timeEnd">Time End</span></dt>
+          <dd>
+            <span>{{ articles.timeEnd }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/articles', articles.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

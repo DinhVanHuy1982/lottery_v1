@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (resultsEveryDay) {
+      <div>
+        <h2 data-cy="resultsEveryDayDetailsHeading">
+          <span jhiTranslate="lotteryApp.resultsEveryDay.detail.title">Results Every Day</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="lotteryApp.resultsEveryDay.id">Id</span></dt>
+          <dd>
+            <span>{{ resultsEveryDay.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.resultsEveryDay.resultDate">Result Date</span></dt>
+          <dd>
+            <span>{{ resultsEveryDay.resultDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.resultsEveryDay.prizeCode">Prize Code</span></dt>
+          <dd>
+            <span>{{ resultsEveryDay.prizeCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.resultsEveryDay.result">Result</span></dt>
+          <dd>
+            <span>{{ resultsEveryDay.result }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/results-every-day', resultsEveryDay.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

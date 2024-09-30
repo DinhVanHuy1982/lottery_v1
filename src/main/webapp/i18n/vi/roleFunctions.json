@@ -1,0 +1,26 @@
+{
+  "lotteryApp": {
+    "roleFunctions": {
+      "home": {
+        "title": "Role Functions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Role Functions",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Role Functions",
+        "notFound": "No Role Functions found"
+      },
+      "created": "Một Role Functions mới được tạo với định danh {{ param }}",
+      "updated": "Một Role Functions cập nhật với định danh {{ param }}",
+      "deleted": "Một Role Functions đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Role Functions {{ id }}?"
+      },
+      "detail": {
+        "title": "Role Functions"
+      },
+      "id": "Id",
+      "code": "Code",
+      "roleCode": "Role Code",
+      "functionCode": "Function Code"
+    }
+  }
+}

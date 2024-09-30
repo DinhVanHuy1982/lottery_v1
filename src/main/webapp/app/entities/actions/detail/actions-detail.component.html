@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (actions) {
+      <div>
+        <h2 data-cy="actionsDetailsHeading"><span jhiTranslate="lotteryApp.actions.detail.title">Actions</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="lotteryApp.actions.id">Id</span></dt>
+          <dd>
+            <span>{{ actions.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.actions.name">Name</span></dt>
+          <dd>
+            <span>{{ actions.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.actions.code">Code</span></dt>
+          <dd>
+            <span>{{ actions.code }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/actions', actions.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

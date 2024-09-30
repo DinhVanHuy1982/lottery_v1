@@ -1,0 +1,28 @@
+{
+  "lotteryApp": {
+    "introduceArticleGroup": {
+      "home": {
+        "title": "Introduce Article Groups",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Introduce Article Group",
+        "createOrEditLabel": "Create or edit a Introduce Article Group",
+        "notFound": "No Introduce Article Groups found"
+      },
+      "created": "A new Introduce Article Group is created with identifier {{ param }}",
+      "updated": "A Introduce Article Group is updated with identifier {{ param }}",
+      "deleted": "A Introduce Article Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Introduce Article Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Introduce Article Group"
+      },
+      "id": "Id",
+      "code": "Code",
+      "articleGroupCode": "Article Group Code",
+      "fileId": "File Id",
+      "titleIntroduce": "Title Introduce",
+      "contentIntroduce": "Content Introduce"
+    }
+  }
+}

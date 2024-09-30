@@ -1,0 +1,30 @@
+{
+  "lotteryApp": {
+    "randomResults": {
+      "home": {
+        "title": "Random Results",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Random Results",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Random Results",
+        "notFound": "No Random Results found"
+      },
+      "created": "Một Random Results mới được tạo với định danh {{ param }}",
+      "updated": "Một Random Results cập nhật với định danh {{ param }}",
+      "deleted": "Một Random Results đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Random Results {{ id }}?"
+      },
+      "detail": {
+        "title": "Random Results"
+      },
+      "id": "Id",
+      "randomDate": "Random Date",
+      "prizeCode": "Prize Code",
+      "result": "Result",
+      "randomUserPlay": "Random User Play",
+      "userPlay": "User Play",
+      "randomUserSuccess": "Random User Success",
+      "userSuccess": "User Success"
+    }
+  }
+}

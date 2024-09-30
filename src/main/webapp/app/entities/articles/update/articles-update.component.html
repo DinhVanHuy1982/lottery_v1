@@ -1,0 +1,150 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-articles-heading" data-cy="ArticlesCreateUpdateHeading" jhiTranslate="lotteryApp.articles.home.createOrEditLabel">
+        Thêm mới hoặc cập nhật Articles
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="lotteryApp.articles.id" for="field_id">Id</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.articles.code" for="field_code">Code</label>
+          <input type="text" class="form-control" name="code" id="field_code" data-cy="code" formControlName="code" />
+          @if (editForm.get('code')!.invalid && (editForm.get('code')!.dirty || editForm.get('code')!.touched)) {
+            <div>
+              @if (editForm.get('code')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Trường này bắt buộc phải nhập.</small>
+              }
+              @if (editForm.get('code')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }"
+                  >Trường này không được vượt quá 50 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.articles.title" for="field_title">Title</label>
+          <input type="text" class="form-control" name="title" id="field_title" data-cy="title" formControlName="title" />
+          @if (editForm.get('title')!.invalid && (editForm.get('title')!.dirty || editForm.get('title')!.touched)) {
+            <div>
+              @if (editForm.get('title')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 500 }"
+                  >Trường này không được vượt quá 500 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.articles.content" for="field_content">Content</label>
+          <input type="text" class="form-control" name="content" id="field_content" data-cy="content" formControlName="content" />
+          @if (editForm.get('content')!.invalid && (editForm.get('content')!.dirty || editForm.get('content')!.touched)) {
+            <div>
+              @if (editForm.get('content')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 2000 }"
+                  >Trường này không được vượt quá 2000 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.articles.fileId" for="field_fileId">File Id</label>
+          <input type="text" class="form-control" name="fileId" id="field_fileId" data-cy="fileId" formControlName="fileId" />
+          @if (editForm.get('fileId')!.invalid && (editForm.get('fileId')!.dirty || editForm.get('fileId')!.touched)) {
+            <div>
+              @if (editForm.get('fileId')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 250 }"
+                  >Trường này không được vượt quá 250 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.articles.updateName" for="field_updateName">Update Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="updateName"
+            id="field_updateName"
+            data-cy="updateName"
+            formControlName="updateName"
+          />
+          @if (editForm.get('updateName')!.invalid && (editForm.get('updateName')!.dirty || editForm.get('updateName')!.touched)) {
+            <div>
+              @if (editForm.get('updateName')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }"
+                  >Trường này không được vượt quá 50 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.articles.numberChoice" for="field_numberChoice">Number Choice</label>
+          <input
+            type="number"
+            class="form-control"
+            name="numberChoice"
+            id="field_numberChoice"
+            data-cy="numberChoice"
+            formControlName="numberChoice"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.articles.numberOfDigits" for="field_numberOfDigits">Number Of Digits</label>
+          <input
+            type="number"
+            class="form-control"
+            name="numberOfDigits"
+            id="field_numberOfDigits"
+            data-cy="numberOfDigits"
+            formControlName="numberOfDigits"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.articles.timeStart" for="field_timeStart">Time Start</label>
+          <input type="text" class="form-control" name="timeStart" id="field_timeStart" data-cy="timeStart" formControlName="timeStart" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.articles.timeEnd" for="field_timeEnd">Time End</label>
+          <input type="text" class="form-control" name="timeEnd" id="field_timeEnd" data-cy="timeEnd" formControlName="timeEnd" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Lưu</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

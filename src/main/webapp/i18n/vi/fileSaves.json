@@ -1,0 +1,26 @@
+{
+  "lotteryApp": {
+    "fileSaves": {
+      "home": {
+        "title": "File Saves",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một File Saves",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật File Saves",
+        "notFound": "No File Saves found"
+      },
+      "created": "Một File Saves mới được tạo với định danh {{ param }}",
+      "updated": "Một File Saves cập nhật với định danh {{ param }}",
+      "deleted": "Một File Saves đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa File Saves {{ id }}?"
+      },
+      "detail": {
+        "title": "File Saves"
+      },
+      "id": "Id",
+      "fileId": "File Id",
+      "fileName": "File Name",
+      "filePath": "File Path"
+    }
+  }
+}

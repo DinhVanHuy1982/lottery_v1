@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (articleGroup) {
+      <div>
+        <h2 data-cy="articleGroupDetailsHeading"><span jhiTranslate="lotteryApp.articleGroup.detail.title">Article Group</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="lotteryApp.articleGroup.id">Id</span></dt>
+          <dd>
+            <span>{{ articleGroup.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articleGroup.code">Code</span></dt>
+          <dd>
+            <span>{{ articleGroup.code }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articleGroup.title">Title</span></dt>
+          <dd>
+            <span>{{ articleGroup.title }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articleGroup.mainContent">Main Content</span></dt>
+          <dd>
+            <span>{{ articleGroup.mainContent }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articleGroup.createTime">Create Time</span></dt>
+          <dd>
+            <span>{{ articleGroup.createTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articleGroup.updateTime">Update Time</span></dt>
+          <dd>
+            <span>{{ articleGroup.updateTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articleGroup.createName">Create Name</span></dt>
+          <dd>
+            <span>{{ articleGroup.createName }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articleGroup.updateName">Update Name</span></dt>
+          <dd>
+            <span>{{ articleGroup.updateName }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articleGroup.fileName">File Name</span></dt>
+          <dd>
+            <span>{{ articleGroup.fileName }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articleGroup.filePath">File Path</span></dt>
+          <dd>
+            <span>{{ articleGroup.filePath }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.articleGroup.fileId">File Id</span></dt>
+          <dd>
+            <span>{{ articleGroup.fileId }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/article-group', articleGroup.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

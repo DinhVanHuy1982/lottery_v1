@@ -1,0 +1,128 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-random-results-heading"
+        data-cy="RandomResultsCreateUpdateHeading"
+        jhiTranslate="lotteryApp.randomResults.home.createOrEditLabel"
+      >
+        Thêm mới hoặc cập nhật Random Results
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="lotteryApp.randomResults.id" for="field_id">Id</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.randomResults.randomDate" for="field_randomDate">Random Date</label>
+          <div class="d-flex">
+            <input
+              id="field_randomDate"
+              data-cy="randomDate"
+              type="datetime-local"
+              class="form-control"
+              name="randomDate"
+              formControlName="randomDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.randomResults.prizeCode" for="field_prizeCode">Prize Code</label>
+          <input type="text" class="form-control" name="prizeCode" id="field_prizeCode" data-cy="prizeCode" formControlName="prizeCode" />
+          @if (editForm.get('prizeCode')!.invalid && (editForm.get('prizeCode')!.dirty || editForm.get('prizeCode')!.touched)) {
+            <div>
+              @if (editForm.get('prizeCode')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }"
+                  >Trường này không được vượt quá 50 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.randomResults.result" for="field_result">Result</label>
+          <input type="text" class="form-control" name="result" id="field_result" data-cy="result" formControlName="result" />
+          @if (editForm.get('result')!.invalid && (editForm.get('result')!.dirty || editForm.get('result')!.touched)) {
+            <div>
+              @if (editForm.get('result')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }"
+                  >Trường này không được vượt quá 100 ký tự.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.randomResults.randomUserPlay" for="field_randomUserPlay"
+            >Random User Play</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="randomUserPlay"
+            id="field_randomUserPlay"
+            data-cy="randomUserPlay"
+            formControlName="randomUserPlay"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.randomResults.userPlay" for="field_userPlay">User Play</label>
+          <input type="number" class="form-control" name="userPlay" id="field_userPlay" data-cy="userPlay" formControlName="userPlay" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.randomResults.randomUserSuccess" for="field_randomUserSuccess"
+            >Random User Success</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="randomUserSuccess"
+            id="field_randomUserSuccess"
+            data-cy="randomUserSuccess"
+            formControlName="randomUserSuccess"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="lotteryApp.randomResults.userSuccess" for="field_userSuccess">User Success</label>
+          <input
+            type="number"
+            class="form-control"
+            name="userSuccess"
+            id="field_userSuccess"
+            data-cy="userSuccess"
+            formControlName="userSuccess"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Lưu</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

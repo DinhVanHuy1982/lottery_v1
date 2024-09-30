@@ -48,6 +48,21 @@ public class CacheConfiguration {
             createCache(cm, com.lottery.app.domain.User.class.getName());
             createCache(cm, com.lottery.app.domain.Authority.class.getName());
             createCache(cm, com.lottery.app.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.lottery.app.domain.AppParams.class.getName());
+            createCache(cm, com.lottery.app.domain.ArticleGroup.class.getName());
+            createCache(cm, com.lottery.app.domain.IntroduceArticleGroup.class.getName());
+            createCache(cm, com.lottery.app.domain.Articles.class.getName());
+            createCache(cm, com.lottery.app.domain.IntroduceArticle.class.getName());
+            createCache(cm, com.lottery.app.domain.Prizes.class.getName());
+            createCache(cm, com.lottery.app.domain.ResultsEveryDay.class.getName());
+            createCache(cm, com.lottery.app.domain.RandomResults.class.getName());
+            createCache(cm, com.lottery.app.domain.Deposits.class.getName());
+            createCache(cm, com.lottery.app.domain.FileSaves.class.getName());
+            createCache(cm, com.lottery.app.domain.Roles.class.getName());
+            createCache(cm, com.lottery.app.domain.RoleFunctions.class.getName());
+            createCache(cm, com.lottery.app.domain.Functions.class.getName());
+            createCache(cm, com.lottery.app.domain.Actions.class.getName());
+            createCache(cm, com.lottery.app.domain.RoleFunctionAction.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

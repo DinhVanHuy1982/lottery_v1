@@ -1,0 +1,33 @@
+{
+  "lotteryApp": {
+    "articleGroup": {
+      "home": {
+        "title": "Article Groups",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Article Group",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Article Group",
+        "notFound": "No Article Groups found"
+      },
+      "created": "Một Article Group mới được tạo với định danh {{ param }}",
+      "updated": "Một Article Group cập nhật với định danh {{ param }}",
+      "deleted": "Một Article Group đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Article Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Article Group"
+      },
+      "id": "Id",
+      "code": "Code",
+      "title": "Title",
+      "mainContent": "Main Content",
+      "createTime": "Create Time",
+      "updateTime": "Update Time",
+      "createName": "Create Name",
+      "updateName": "Update Name",
+      "fileName": "File Name",
+      "filePath": "File Path",
+      "fileId": "File Id"
+    }
+  }
+}

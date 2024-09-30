@@ -1,0 +1,51 @@
+{
+  "annotations": {
+    "changelogDate": "20240930142421"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "random_results",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "randomDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "prizeCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "result",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "randomUserPlay",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "userPlay",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "randomUserSuccess",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "userSuccess",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "RandomResults",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

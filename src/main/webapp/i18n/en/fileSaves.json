@@ -1,0 +1,26 @@
+{
+  "lotteryApp": {
+    "fileSaves": {
+      "home": {
+        "title": "File Saves",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new File Saves",
+        "createOrEditLabel": "Create or edit a File Saves",
+        "notFound": "No File Saves found"
+      },
+      "created": "A new File Saves is created with identifier {{ param }}",
+      "updated": "A File Saves is updated with identifier {{ param }}",
+      "deleted": "A File Saves is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete File Saves {{ id }}?"
+      },
+      "detail": {
+        "title": "File Saves"
+      },
+      "id": "Id",
+      "fileId": "File Id",
+      "fileName": "File Name",
+      "filePath": "File Path"
+    }
+  }
+}

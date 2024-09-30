@@ -1,0 +1,31 @@
+{
+  "lotteryApp": {
+    "prizes": {
+      "home": {
+        "title": "Prizes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Prizes",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Prizes",
+        "notFound": "No Prizes found"
+      },
+      "created": "Một Prizes mới được tạo với định danh {{ param }}",
+      "updated": "Một Prizes cập nhật với định danh {{ param }}",
+      "deleted": "Một Prizes đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Prizes {{ id }}?"
+      },
+      "detail": {
+        "title": "Prizes"
+      },
+      "id": "Id",
+      "code": "Code",
+      "articleCode": "Article Code",
+      "levelCup": "Level Cup",
+      "numberPrize": "Number Prize",
+      "createTime": "Create Time",
+      "createName": "Create Name",
+      "updateTime": "Update Time",
+      "updateName": "Update Name"
+    }
+  }
+}

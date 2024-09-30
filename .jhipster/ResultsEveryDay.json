@@ -1,0 +1,35 @@
+{
+  "annotations": {
+    "changelogDate": "20240930142321"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "results_every_day",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "resultDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "prizeCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "result",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "name": "ResultsEveryDay",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

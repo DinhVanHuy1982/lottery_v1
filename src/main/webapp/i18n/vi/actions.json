@@ -1,0 +1,25 @@
+{
+  "lotteryApp": {
+    "actions": {
+      "home": {
+        "title": "Actions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Actions",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Actions",
+        "notFound": "No Actions found"
+      },
+      "created": "Một Actions mới được tạo với định danh {{ param }}",
+      "updated": "Một Actions cập nhật với định danh {{ param }}",
+      "deleted": "Một Actions đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Actions {{ id }}?"
+      },
+      "detail": {
+        "title": "Actions"
+      },
+      "id": "Id",
+      "name": "Name",
+      "code": "Code"
+    }
+  }
+}

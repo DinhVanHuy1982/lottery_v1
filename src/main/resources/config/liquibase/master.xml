@@ -11,6 +11,21 @@
     <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930141721_added_entity_AppParams.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930141821_added_entity_ArticleGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930141921_added_entity_IntroduceArticleGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930142021_added_entity_Articles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930142121_added_entity_IntroduceArticle.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930142221_added_entity_Prizes.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930142321_added_entity_ResultsEveryDay.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930142421_added_entity_RandomResults.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930142521_added_entity_Deposits.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930142621_added_entity_FileSaves.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930142721_added_entity_Roles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930142821_added_entity_RoleFunctions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930142921_added_entity_Functions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930143021_added_entity_Actions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930143121_added_entity_RoleFunctionAction.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->

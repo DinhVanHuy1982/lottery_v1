@@ -1,0 +1,26 @@
+{
+  "lotteryApp": {
+    "appParams": {
+      "home": {
+        "title": "App Params",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new App Params",
+        "createOrEditLabel": "Create or edit a App Params",
+        "notFound": "No App Params found"
+      },
+      "created": "A new App Params is created with identifier {{ param }}",
+      "updated": "A App Params is updated with identifier {{ param }}",
+      "deleted": "A App Params is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete App Params {{ id }}?"
+      },
+      "detail": {
+        "title": "App Params"
+      },
+      "id": "Id",
+      "code": "Code",
+      "value": "Value",
+      "type": "Type"
+    }
+  }
+}

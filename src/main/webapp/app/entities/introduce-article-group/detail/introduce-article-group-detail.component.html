@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (introduceArticleGroup) {
+      <div>
+        <h2 data-cy="introduceArticleGroupDetailsHeading">
+          <span jhiTranslate="lotteryApp.introduceArticleGroup.detail.title">Introduce Article Group</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="lotteryApp.introduceArticleGroup.id">Id</span></dt>
+          <dd>
+            <span>{{ introduceArticleGroup.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.introduceArticleGroup.code">Code</span></dt>
+          <dd>
+            <span>{{ introduceArticleGroup.code }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.introduceArticleGroup.articleGroupCode">Article Group Code</span></dt>
+          <dd>
+            <span>{{ introduceArticleGroup.articleGroupCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.introduceArticleGroup.fileId">File Id</span></dt>
+          <dd>
+            <span>{{ introduceArticleGroup.fileId }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.introduceArticleGroup.titleIntroduce">Title Introduce</span></dt>
+          <dd>
+            <span>{{ introduceArticleGroup.titleIntroduce }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.introduceArticleGroup.contentIntroduce">Content Introduce</span></dt>
+          <dd>
+            <span>{{ introduceArticleGroup.contentIntroduce }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/introduce-article-group', introduceArticleGroup.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

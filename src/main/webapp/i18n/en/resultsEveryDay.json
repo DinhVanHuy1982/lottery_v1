@@ -1,0 +1,26 @@
+{
+  "lotteryApp": {
+    "resultsEveryDay": {
+      "home": {
+        "title": "Results Every Days",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Results Every Day",
+        "createOrEditLabel": "Create or edit a Results Every Day",
+        "notFound": "No Results Every Days found"
+      },
+      "created": "A new Results Every Day is created with identifier {{ param }}",
+      "updated": "A Results Every Day is updated with identifier {{ param }}",
+      "deleted": "A Results Every Day is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Results Every Day {{ id }}?"
+      },
+      "detail": {
+        "title": "Results Every Day"
+      },
+      "id": "Id",
+      "resultDate": "Result Date",
+      "prizeCode": "Prize Code",
+      "result": "Result"
+    }
+  }
+}

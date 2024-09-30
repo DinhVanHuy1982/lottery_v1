@@ -1,0 +1,33 @@
+{
+  "lotteryApp": {
+    "deposits": {
+      "home": {
+        "title": "Deposits",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Deposits",
+        "createOrEditLabel": "Create or edit a Deposits",
+        "notFound": "No Deposits found"
+      },
+      "created": "A new Deposits is created with identifier {{ param }}",
+      "updated": "A Deposits is updated with identifier {{ param }}",
+      "deleted": "A Deposits is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Deposits {{ id }}?"
+      },
+      "detail": {
+        "title": "Deposits"
+      },
+      "id": "Id",
+      "articleCode": "Article Code",
+      "netwrokCard": "Netwrok Card",
+      "valueCard": "Value Card",
+      "createTime": "Create Time",
+      "seriCard": "Seri Card",
+      "codeCard": "Code Card",
+      "status": "Status",
+      "userAppose": "User Appose",
+      "valueChoice": "Value Choice",
+      "phoneNumber": "Phone Number"
+    }
+  }
+}

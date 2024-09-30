@@ -1,0 +1,26 @@
+{
+  "lotteryApp": {
+    "appParams": {
+      "home": {
+        "title": "App Params",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một App Params",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật App Params",
+        "notFound": "No App Params found"
+      },
+      "created": "Một App Params mới được tạo với định danh {{ param }}",
+      "updated": "Một App Params cập nhật với định danh {{ param }}",
+      "deleted": "Một App Params đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa App Params {{ id }}?"
+      },
+      "detail": {
+        "title": "App Params"
+      },
+      "id": "Id",
+      "code": "Code",
+      "value": "Value",
+      "type": "Type"
+    }
+  }
+}

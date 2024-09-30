@@ -1,0 +1,33 @@
+{
+  "lotteryApp": {
+    "articleGroup": {
+      "home": {
+        "title": "Article Groups",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Article Group",
+        "createOrEditLabel": "Create or edit a Article Group",
+        "notFound": "No Article Groups found"
+      },
+      "created": "A new Article Group is created with identifier {{ param }}",
+      "updated": "A Article Group is updated with identifier {{ param }}",
+      "deleted": "A Article Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Article Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Article Group"
+      },
+      "id": "Id",
+      "code": "Code",
+      "title": "Title",
+      "mainContent": "Main Content",
+      "createTime": "Create Time",
+      "updateTime": "Update Time",
+      "createName": "Create Name",
+      "updateName": "Update Name",
+      "fileName": "File Name",
+      "filePath": "File Path",
+      "fileId": "File Id"
+    }
+  }
+}

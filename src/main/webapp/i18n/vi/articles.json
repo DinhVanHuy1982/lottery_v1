@@ -1,0 +1,32 @@
+{
+  "lotteryApp": {
+    "articles": {
+      "home": {
+        "title": "Articles",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Articles",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Articles",
+        "notFound": "No Articles found"
+      },
+      "created": "Một Articles mới được tạo với định danh {{ param }}",
+      "updated": "Một Articles cập nhật với định danh {{ param }}",
+      "deleted": "Một Articles đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Articles {{ id }}?"
+      },
+      "detail": {
+        "title": "Articles"
+      },
+      "id": "Id",
+      "code": "Code",
+      "title": "Title",
+      "content": "Content",
+      "fileId": "File Id",
+      "updateName": "Update Name",
+      "numberChoice": "Number Choice",
+      "numberOfDigits": "Number Of Digits",
+      "timeStart": "Time Start",
+      "timeEnd": "Time End"
+    }
+  }
+}

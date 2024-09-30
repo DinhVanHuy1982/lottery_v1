@@ -1,0 +1,30 @@
+{
+  "lotteryApp": {
+    "randomResults": {
+      "home": {
+        "title": "Random Results",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Random Results",
+        "createOrEditLabel": "Create or edit a Random Results",
+        "notFound": "No Random Results found"
+      },
+      "created": "A new Random Results is created with identifier {{ param }}",
+      "updated": "A Random Results is updated with identifier {{ param }}",
+      "deleted": "A Random Results is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Random Results {{ id }}?"
+      },
+      "detail": {
+        "title": "Random Results"
+      },
+      "id": "Id",
+      "randomDate": "Random Date",
+      "prizeCode": "Prize Code",
+      "result": "Result",
+      "randomUserPlay": "Random User Play",
+      "userPlay": "User Play",
+      "randomUserSuccess": "Random User Success",
+      "userSuccess": "User Success"
+    }
+  }
+}
