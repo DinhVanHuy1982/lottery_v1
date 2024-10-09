@@ -29,6 +29,10 @@ public class ArticleGroup implements Serializable {
     private String code;
 
     @Size(max = 500)
+    @Column(name = "name", length = 500)
+    private String name;
+
+    @Size(max = 500)
     @Column(name = "title", length = 500)
     private String title;
 
@@ -205,6 +209,14 @@ public class ArticleGroup implements Serializable {
 
     public void setFileId(String fileId) {
         this.fileId = fileId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

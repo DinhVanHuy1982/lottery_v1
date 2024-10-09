@@ -1,5 +1,6 @@
 package com.lottery.app.service.dto;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -18,6 +19,12 @@ public class ArticlesDTO implements Serializable {
 
     @Size(max = 500)
     private String title;
+
+    @Size(max = 50)
+    private String articleGroupCode;
+
+    @Size(max = 500)
+    private String name;
 
     @Size(max = 2000)
     private String content;
@@ -114,6 +121,22 @@ public class ArticlesDTO implements Serializable {
 
     public void setTimeEnd(String timeEnd) {
         this.timeEnd = timeEnd;
+    }
+
+    public String getArticleGroupCode() {
+        return articleGroupCode;
+    }
+
+    public void setArticleGroupCode(String articleGroupCode) {
+        this.articleGroupCode = articleGroupCode;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

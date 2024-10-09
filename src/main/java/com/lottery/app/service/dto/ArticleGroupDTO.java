@@ -1,5 +1,6 @@
 package com.lottery.app.service.dto;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.Instant;
@@ -22,6 +23,9 @@ public class ArticleGroupDTO implements Serializable {
 
     @Size(max = 2000)
     private String mainContent;
+
+    @Size(max = 500)
+    private String name;
 
     private Instant createTime;
 
@@ -128,6 +132,14 @@ public class ArticleGroupDTO implements Serializable {
 
     public void setFileId(String fileId) {
         this.fileId = fileId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

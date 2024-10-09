@@ -27,6 +27,15 @@ public class Articles implements Serializable {
     @Column(name = "code", length = 50, nullable = false)
     private String code;
 
+    @NotNull
+    @Size(max = 50)
+    @Column(name = "article_group_code", length = 50, nullable = false)
+    private String articleGroupCode;
+
+    @Size(max = 500)
+    @Column(name = "name", length = 500)
+    private String name;
+
     @Size(max = 500)
     @Column(name = "title", length = 500)
     private String title;
@@ -198,6 +207,22 @@ public class Articles implements Serializable {
             return false;
         }
         return getId() != null && getId().equals(((Articles) o).getId());
+    }
+
+    public String getArticleGroupCode() {
+        return articleGroupCode;
+    }
+
+    public void setArticleGroupCode(String articleGroupCode) {
+        this.articleGroupCode = articleGroupCode;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
