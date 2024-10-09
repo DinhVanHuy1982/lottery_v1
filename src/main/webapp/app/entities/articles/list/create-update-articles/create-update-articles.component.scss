@@ -1,0 +1,14 @@
+.body {
+  .article {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    .row {
+      margin: unset;
+      gap: 16px;
+    }
+    .col {
+      padding: unset;
+    }
+  }
+}

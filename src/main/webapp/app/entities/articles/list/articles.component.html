@@ -12,8 +12,9 @@
         id="jh-create-entity"
         data-cy="entityCreateButton"
         class="btn btn-primary jh-create-entity create-articles"
-        [routerLink]="['/articles/new']"
+        (click)="openCreateArticle()"
       >
+        <!--        [routerLink]="['/articles/new']"-->
         <fa-icon icon="plus"></fa-icon>
         <span jhiTranslate="lotteryApp.articles.home.createLabel">Thêm mới một Articles</span>
       </button>

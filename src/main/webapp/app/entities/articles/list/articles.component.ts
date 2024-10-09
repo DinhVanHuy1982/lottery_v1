@@ -15,6 +15,8 @@ import { ASC, DESC, SORT, ITEM_DELETED_EVENT, DEFAULT_SORT_DATA } from 'app/conf
 import { IArticles } from '../articles.model';
 import { EntityArrayResponseType, ArticlesService } from '../service/articles.service';
 import { ArticlesDeleteDialogComponent } from '../delete/articles-delete-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateUpdateArticlesComponent } from './create-update-articles/create-update-articles.component';
 
 @Component({
   standalone: true,
@@ -48,6 +50,7 @@ export class ArticlesComponent implements OnInit {
     protected activatedRoute: ActivatedRoute,
     public router: Router,
     protected modalService: NgbModal,
+    private dialog: MatDialog,
   ) {}
 
   trackId = (_index: number, item: IArticles): number => this.articlesService.getArticlesIdentifier(item);
@@ -148,5 +151,17 @@ export class ArticlesComponent implements OnInit {
     } else {
       return [predicate + ',' + ascendingQueryParam];
     }
+  }
+
+  openCreateArticle() {
+    this.dialog.open(CreateUpdateArticlesComponent, {
+      data: { action: 'CR' },
+      disableClose: true,
+      hasBackdrop: true,
+      width: '1030px',
+      height: '90vh',
+      autoFocus: false,
+      panelClass: 'rental-info',
+    });
   }
 }
