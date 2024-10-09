@@ -1,0 +1,60 @@
+<div class="modal-content modal-dialog-custom">
+  <input type="reset" class="fakeTab-ShiftTab" (blur)="handleDeleteFake()" />
+  <div class="header">
+    <div class="title" *ngIf="data.action === 'CR'">Tạo mới bài viết</div>
+    <div class="title" *ngIf="data.action === 'UD'">Cập nhật bài viết</div>
+    <div (click)="close()" class="icon-close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 6L18 18" stroke="#515151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M18 6L6 18" stroke="#515151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+  </div>
+  <div class="body">
+    <div class="article">
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Tiêu đề bài viết&nbsp;<span style="color: red">*</span></label>
+          <input type="text" [placeholder]="'Nhập tiêu đề bài viết'" trim formControlName="docSymbols" class="form-control" />
+        </div>
+        <div class="col">
+          <label class="form-label">Số lựa chọn đánh&nbsp;<span style="color: red">*</span></label>
+          <input type="text" [placeholder]="'Nhập số lượng lựa chọn đánh'" trim formControlName="docSymbols" class="form-control" />
+        </div>
+        <div class="col">
+          <label class="form-label">Số chữ số đánh&nbsp;<span style="color: red">*</span></label>
+          <input type="text" [placeholder]="'Nhập số chữ số đánh'" trim formControlName="docSymbols" class="form-control" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Thời gian bắt đầu quay&nbsp;<span style="color: red">*</span></label>
+          <nz-time-picker
+            class="form-control"
+            id="article_start_time"
+            nzFormat="HH:mm"
+            [nzPlaceHolder]="'Thời gian bắt đầu'"
+          ></nz-time-picker>
+        </div>
+        <div class="col">
+          <label class="form-label">Thời gian kết thúc quay&nbsp;<span style="color: red">*</span></label>
+          <nz-time-picker
+            class="form-control"
+            id="article_end_time"
+            nzFormat="HH:mm"
+            [nzPlaceHolder]="'Thời gian kết thúc'"
+          ></nz-time-picker>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="btn-action">
+      <button type="button" class="btn-md btn-gray boxShadow" (click)="close()">Hủy bỏ</button>
+      <button type="button" class="btn-md btn-or boxShadow" (click)="submit()">Lưu lại</button>
+    </div>
+  </div>
+</div>
+<div id="page-loading" [ngClass]="{ 'page-loading-class': isLoading }">
+  <div id="load-page" class="bee-spinner-sc"></div>
+</div>

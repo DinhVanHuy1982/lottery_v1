@@ -10,18 +10,30 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IArticles } from '../articles.model';
 import { ArticlesService } from '../service/articles.service';
 import { ArticlesFormService, ArticlesFormGroup } from './articles-form.service';
+import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
 
 @Component({
   standalone: true,
   selector: 'jhi-articles-update',
   templateUrl: './articles-update.component.html',
-  imports: [SharedModule, FormsModule, ReactiveFormsModule],
+  styleUrls: ['./articles-update.component.scss'],
+  imports: [SharedModule, FormsModule, ReactiveFormsModule, NzTimePickerModule],
 })
 export class ArticlesUpdateComponent implements OnInit {
   isSaving = false;
   articles: IArticles | null = null;
-
+  time = new Date();
   editForm: ArticlesFormGroup = this.articlesFormService.createArticlesFormGroup();
+
+  bodyCreate = {
+    name: '',
+    title: '',
+    content: '',
+    numberChoice: '',
+    numberOfDigits: '',
+    timeStart: '',
+    timeEnd: '',
+  };
 
   constructor(
     protected articlesService: ArticlesService,
@@ -36,6 +48,12 @@ export class ArticlesUpdateComponent implements OnInit {
         this.updateForm(articles);
       }
     });
+  }
+
+  exportTime = { hour: 7, minute: 15, meriden: 'PM', format: 24 };
+
+  onChangeHour(event: any) {
+    console.log('event', event);
   }
 
   previousState(): void {
@@ -74,5 +92,19 @@ export class ArticlesUpdateComponent implements OnInit {
   protected updateForm(articles: IArticles): void {
     this.articles = articles;
     this.articlesFormService.resetForm(this.editForm, articles);
+  }
+
+  changeTimepicker(selectedTime: any) {
+    if (selectedTime) {
+      const currentDate = new Date(); // Lấy ngày hiện tại
+      const hours = selectedTime.getHours();
+      const minutes = selectedTime.getMinutes();
+
+      // Tạo một đối tượng Date mới với ngày hiện tại và thời gian đã chọn
+      const time = hours + ':' + minutes;
+
+      console.log('Selected Date and Time:', time);
+    }
+    // console.log("change time: ",this.time)
   }
 }

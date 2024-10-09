@@ -14,11 +14,18 @@ import routes from './app.routes';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { NgbDateDayjsAdapter } from './config/datepicker-adapter';
 import { AppPageTitleStrategy } from './app-page-title-strategy';
+import { provideToastr } from 'ngx-toastr';
+import { NZ_I18N, vi_VN } from 'ng-zorro-antd/i18n';
+import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
+import { registerLocaleData } from '@angular/common';
+import localeVi from '@angular/common/locales/vi';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routerFeatures: Array<RouterFeatures> = [withComponentInputBinding()];
 if (DEBUG_INFO_ENABLED) {
   routerFeatures.push(withDebugTracing());
 }
+registerLocaleData(localeVi);
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -28,11 +35,17 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(ServiceWorkerModule.register('ngsw-worker.js', { enabled: false })),
     importProvidersFrom(TranslationModule),
     importProvidersFrom(HttpClientModule),
+    importProvidersFrom(NzTimePickerModule),
+    importProvidersFrom(BrowserAnimationsModule),
     Title,
     { provide: LOCALE_ID, useValue: 'vi' },
+    { provide: NZ_I18N, useValue: vi_VN },
     { provide: NgbDateAdapter, useClass: NgbDateDayjsAdapter },
     httpInterceptorProviders,
     { provide: TitleStrategy, useClass: AppPageTitleStrategy },
+    provideToastr({
+      positionClass: 'toast-top-center',
+    }),
     // jhipster-needle-angular-add-module JHipster will add new module here
   ],
 };

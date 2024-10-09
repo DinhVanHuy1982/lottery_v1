@@ -17,6 +17,7 @@
       "detail": {
         "title": "Articles"
       },
+      "nameArticle": "Tên bài viết",
       "id": "Id",
       "code": "Code",
       "title": "Title",

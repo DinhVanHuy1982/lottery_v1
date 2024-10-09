@@ -1,10 +1,44 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
-    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2 id="jhi-articles-heading" data-cy="ArticlesCreateUpdateHeading" jhiTranslate="lotteryApp.articles.home.createOrEditLabel">
-        Thêm mới hoặc cập nhật Articles
-      </h2>
+    <nz-time-picker id="field_article_time" (ngModelChange)="changeTimepicker($event)" [(ngModel)]="time" nzFormat="HH:mm"></nz-time-picker>
 
+    <h2 id="jhi-articles-heading" data-cy="ArticlesCreateUpdateHeading" jhiTranslate="lotteryApp.articles.home.createOrEditLabel">
+      Thêm mới hoặc cập nhật Articles
+    </h2>
+
+    <div>
+      <div class="mb-3">
+        <label class="form-label" jhiTranslate="lotteryApp.articles.nameArticle" for="field_article_title">Tiêu đề bài viết</label>
+        <input class="form-control" name="id" id="field_article_title" data-cy="id" [(ngModel)]="bodyCreate.title" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" jhiTranslate="lotteryApp.articles.nameArticle" for="field_article_name">Tên bài viết</label>
+        <input class="form-control" name="id" id="field_article_name" data-cy="id" [(ngModel)]="bodyCreate.name" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" jhiTranslate="lotteryApp.articles.nameArticle" for="field_article_content">Nội dung bài viết</label>
+        <textarea class="form-control" name="id" id="field_article_content" data-cy="id" [(ngModel)]="bodyCreate.content"></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" jhiTranslate="lotteryApp.articles.nameArticle" for="field_article_time_start"
+          >Thời gian bắt đầu quay</label
+        >
+        <input class="form-control" name="id" id="field_article_time_start" data-cy="id" [(ngModel)]="bodyCreate.timeStart" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" jhiTranslate="lotteryApp.articles.nameArticle" for="field_article_time_end"
+          >Thời gian kết thúc quay</label
+        >
+        <input class="form-control" name="id" id="field_article_time_end" data-cy="id" [(ngModel)]="bodyCreate.timeStart" />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label" for="field_article_time">Thời gian VD</label>
+
+        <!--          <material-timepicker color="primary" label="Hour" [userTime]="exportTime" (change)="onChangeHour($event)" revertLabel="Remove" submitLabel="Ok"></material-timepicker>-->
+      </div>
+    </div>
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
       <div>
         <jhi-alert-error></jhi-alert-error>
 
