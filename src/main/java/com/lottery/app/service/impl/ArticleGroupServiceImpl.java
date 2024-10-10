@@ -1,10 +1,14 @@
 package com.lottery.app.service.impl;
 
+import com.lottery.app.config.Constants;
+import com.lottery.app.config.ServiceResult;
 import com.lottery.app.domain.ArticleGroup;
 import com.lottery.app.repository.ArticleGroupRepository;
 import com.lottery.app.service.ArticleGroupService;
 import com.lottery.app.service.dto.ArticleGroupDTO;
 import com.lottery.app.service.mapper.ArticleGroupMapper;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -80,5 +84,11 @@ public class ArticleGroupServiceImpl implements ArticleGroupService {
     public void delete(Long id) {
         log.debug("Request to delete ArticleGroup : {}", id);
         articleGroupRepository.deleteById(id);
+    }
+
+    @Override
+    public ServiceResult<List<Map<String, Object>>> getLstArticleGroupCodeName() {
+        List<Map<String, Object>> lstMap = this.articleGroupRepository.getLstArticleGroupCodeAndName();
+        return new ServiceResult<>(lstMap, Constants.CODE_STATUS.SUCCESS, "");
     }
 }

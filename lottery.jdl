@@ -128,7 +128,7 @@ entity Deposits{
     userAppose String maxlength(50), // người phê duyệt
     valueChoice String maxlength(100), // giá trị mà người dùng được cho số
 	phoneNumber String maxlength(50), // số điện thoại nhận số, key của người dùng ***
-
+    level_deposits_code String maxlength(50),
 }
 dto Deposits with mapstruct
 paginate Deposits with pagination
@@ -204,6 +204,33 @@ dto RoleFunctionAction with mapstruct
 paginate RoleFunctionAction with pagination
 service RoleFunctionAction with serviceClass
 service RoleFunctionAction with serviceImpl
+
+
+entity LevelDeposits{// các mức độ ra số
+    id Long, // id
+    code String maxlength(50),
+    minPrice Long ,// giá thấp nhất để ra số
+    updateName String maxlength(50),
+    updateTime Instant,
+    articleCode String maxlength(50)
+}
+dto LevelDeposits with mapstruct
+paginate LevelDeposits with pagination
+service LevelDeposits with serviceClass
+service LevelDeposits with serviceImpl
+
+
+entity LevelDepositsResult{// kết quả của từng level ra số
+    id Long, // id
+    code String maxlength(50),
+    levelDepositsCode String maxlength(50),
+    randomResultCode String maxlength(50),
+    resultDate Instant,
+}
+dto LevelDepositsResult with mapstruct
+paginate LevelDepositsResult with pagination
+service LevelDepositsResult with serviceClass
+service LevelDepositsResult with serviceImpl
 
 //    "@ag-grid-community/styles": "^31.1.0",
 //    "@angular/common": "18.2.5",

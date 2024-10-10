@@ -211,3 +211,6 @@ jhipster:
 # ===================================================================
 
 # application:
+
+template:
+  folder: src/main/resources/templates/

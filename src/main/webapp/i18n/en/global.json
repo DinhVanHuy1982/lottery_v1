@@ -8,21 +8,8 @@
       "entities": {
         "main": "Entities",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "appParams": "App Params",
-        "articleGroup": "Article Group",
-        "introduceArticleGroup": "Introduce Article Group",
-        "articles": "Articles",
-        "introduceArticle": "Introduce Article",
-        "prizes": "Prizes",
-        "resultsEveryDay": "Results Every Day",
-        "randomResults": "Random Results",
-        "deposits": "Deposits",
-        "fileSaves": "File Saves",
-        "roles": "Roles",
-        "roleFunctions": "Role Functions",
-        "functions": "Functions",
-        "actions": "Actions",
-        "roleFunctionAction": "Role Function Action"
+        "levelDeposits": "Level Deposits",
+        "levelDepositsResult": "Level Deposits Result"
       },
       "account": {
         "main": "Account",

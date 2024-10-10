@@ -1,6 +1,9 @@
 package com.lottery.app.service;
 
+import com.lottery.app.config.ServiceResult;
 import com.lottery.app.service.dto.ArticleGroupDTO;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -55,4 +58,6 @@ public interface ArticleGroupService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    ServiceResult<List<Map<String, Object>>> getLstArticleGroupCodeName();
 }

@@ -29,7 +29,8 @@ export type EntityArrayResponseType = HttpResponse<IArticleGroup[]>;
 
 @Injectable({ providedIn: 'root' })
 export class ArticleGroupService {
-  protected resourceUrl = this.applicationConfigService.getEndpointFor('api/article-groups');
+  protected resourceUrl = this.applicationConfigService.getEndpointFor('api/');
+  private FUNCTION_QLNVB = 'QLNVB';
 
   constructor(
     protected http: HttpClient,
@@ -130,5 +131,9 @@ export class ArticleGroupService {
     return res.clone({
       body: res.body ? res.body.map(item => this.convertDateFromServer(item)) : null,
     });
+  }
+
+  getLstArticleGroupCodeAndName(): Observable<any> {
+    return this.http.get(this.resourceUrl + this.FUNCTION_QLNVB + '/search/list-name-group');
   }
 }

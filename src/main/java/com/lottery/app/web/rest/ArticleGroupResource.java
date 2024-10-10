@@ -1,5 +1,6 @@
 package com.lottery.app.web.rest;
 
+import com.lottery.app.config.ServiceResult;
 import com.lottery.app.repository.ArticleGroupRepository;
 import com.lottery.app.service.ArticleGroupService;
 import com.lottery.app.service.dto.ArticleGroupDTO;
@@ -9,6 +10,7 @@ import jakarta.validation.constraints.NotNull;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -28,7 +30,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.lottery.app.domain.ArticleGroup}.
  */
 @RestController
-@RequestMapping("/api/article-groups")
+@RequestMapping("/api")
 public class ArticleGroupResource {
 
     private final Logger log = LoggerFactory.getLogger(ArticleGroupResource.class);
@@ -179,5 +181,10 @@ public class ArticleGroupResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    @GetMapping("/QLNVB/search/list-name-group")
+    public ServiceResult<List<Map<String, Object>>> getListArticleGroupName() {
+        return this.articleGroupService.getLstArticleGroupCodeName();
     }
 }

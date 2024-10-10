@@ -18,6 +18,20 @@
           <input type="text" [placeholder]="'Nhập tiêu đề bài viết'" trim formControlName="docSymbols" class="form-control" />
         </div>
         <div class="col">
+          <label class="form-label">Nhóm bài viết&nbsp;<span style="color: red">*</span></label>
+          <ng-select
+            [items]="listArticleGroup"
+            bindValue="code"
+            bindLabel="name"
+            [searchable]="true"
+            [clearable]="true"
+            placeholder="Nhóm bài viết"
+          >
+          </ng-select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <label class="form-label">Số lựa chọn đánh&nbsp;<span style="color: red">*</span></label>
           <input type="text" [placeholder]="'Nhập số lượng lựa chọn đánh'" trim formControlName="docSymbols" class="form-control" />
         </div>

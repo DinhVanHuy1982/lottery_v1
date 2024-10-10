@@ -1,0 +1,26 @@
+
+entity LevelDeposits{// các mức độ ra số
+    id Long, // id
+    code String maxlength(50),
+    minPrice Long ,// giá thấp nhất để ra số
+    updateName String maxlength(50),
+    updateTime Instant,
+    articleCode String maxlength(50)
+}
+dto LevelDeposits with mapstruct
+paginate LevelDeposits with pagination
+service LevelDeposits with serviceClass
+service LevelDeposits with serviceImpl
+
+
+entity LevelDepositsResult{// kết quả của từng level ra số
+    id Long, // id
+    code String maxlength(50),
+    levelDepositsCode String maxlength(50),
+    randomResultCode String maxlength(50),
+    resultDate Instant,
+}
+dto LevelDepositsResult with mapstruct
+paginate LevelDepositsResult with pagination
+service LevelDepositsResult with serviceClass
+service LevelDepositsResult with serviceImpl
