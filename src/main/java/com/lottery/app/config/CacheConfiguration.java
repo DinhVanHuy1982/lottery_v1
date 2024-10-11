@@ -63,6 +63,8 @@ public class CacheConfiguration {
             createCache(cm, com.lottery.app.domain.Functions.class.getName());
             createCache(cm, com.lottery.app.domain.Actions.class.getName());
             createCache(cm, com.lottery.app.domain.RoleFunctionAction.class.getName());
+            createCache(cm, com.lottery.app.domain.LevelDeposits.class.getName());
+            createCache(cm, com.lottery.app.domain.LevelDepositsResult.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

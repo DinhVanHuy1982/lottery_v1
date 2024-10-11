@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface ArticleGroupRepository extends JpaRepository<ArticleGroup, Long> {
-    @Query(value = "SELECT ag.code as code, ag.name as name FROM article_group ag", nativeQuery = true)
+    @Query(value = "SELECT ag.code as code, ag.title as name FROM article_group ag", nativeQuery = true)
     List<Map<String, Object>> getLstArticleGroupCodeAndName();
 }

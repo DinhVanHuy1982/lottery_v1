@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (levelDeposits) {
+      <div>
+        <h2 data-cy="levelDepositsDetailsHeading"><span jhiTranslate="lotteryApp.levelDeposits.detail.title">Level Deposits</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="lotteryApp.levelDeposits.id">Id</span></dt>
+          <dd>
+            <span>{{ levelDeposits.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.levelDeposits.code">Code</span></dt>
+          <dd>
+            <span>{{ levelDeposits.code }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.levelDeposits.minPrice">Min Price</span></dt>
+          <dd>
+            <span>{{ levelDeposits.minPrice }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.levelDeposits.updateName">Update Name</span></dt>
+          <dd>
+            <span>{{ levelDeposits.updateName }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.levelDeposits.updateTime">Update Time</span></dt>
+          <dd>
+            <span>{{ levelDeposits.updateTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="lotteryApp.levelDeposits.articleCode">Article Code</span></dt>
+          <dd>
+            <span>{{ levelDeposits.articleCode }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Quay lại</span>
+        </button>
+
+        <button type="button" [routerLink]="['/level-deposits', levelDeposits.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Sửa</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

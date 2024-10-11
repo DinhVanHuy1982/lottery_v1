@@ -1,4 +1,6 @@
 // run cmd: jhipster import-jdl lottery.jdl
+// use node : 20.17.0
+// 8:81aadcfdbecd51a8726ce9acce8b705b
 
 entity AppParams{
     id Long, // id

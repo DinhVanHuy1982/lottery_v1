@@ -1,0 +1,27 @@
+{
+  "lotteryApp": {
+    "levelDepositsResult": {
+      "home": {
+        "title": "Level Deposits Results",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Level Deposits Result",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Level Deposits Result",
+        "notFound": "No Level Deposits Results found"
+      },
+      "created": "Một Level Deposits Result mới được tạo với định danh {{ param }}",
+      "updated": "Một Level Deposits Result cập nhật với định danh {{ param }}",
+      "deleted": "Một Level Deposits Result đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Level Deposits Result {{ id }}?"
+      },
+      "detail": {
+        "title": "Level Deposits Result"
+      },
+      "id": "Id",
+      "code": "Code",
+      "levelDepositsCode": "Level Deposits Code",
+      "randomResultCode": "Random Result Code",
+      "resultDate": "Result Date"
+    }
+  }
+}

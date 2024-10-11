@@ -1,0 +1,28 @@
+{
+  "lotteryApp": {
+    "levelDeposits": {
+      "home": {
+        "title": "Level Deposits",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Level Deposits",
+        "createOrEditLabel": "Create or edit a Level Deposits",
+        "notFound": "No Level Deposits found"
+      },
+      "created": "A new Level Deposits is created with identifier {{ param }}",
+      "updated": "A Level Deposits is updated with identifier {{ param }}",
+      "deleted": "A Level Deposits is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Level Deposits {{ id }}?"
+      },
+      "detail": {
+        "title": "Level Deposits"
+      },
+      "id": "Id",
+      "code": "Code",
+      "minPrice": "Min Price",
+      "updateName": "Update Name",
+      "updateTime": "Update Time",
+      "articleCode": "Article Code"
+    }
+  }
+}

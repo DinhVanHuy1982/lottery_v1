@@ -11,7 +11,6 @@
       "error": "Lỗi"
     },
     "indicator": {
-      "binders": "Truyền tải tin nhắn",
       "diskSpace": "Dung lượng trống",
       "mail": "Email",
       "livenessState": "Liveness state",
@@ -26,7 +25,6 @@
     "status": {
       "UNKNOWN": "UNKNOWN",
       "UP": "Đang hoạt động",
-      "OUT_OF_SERVICE": "OUT_OF_SERVICE",
       "DOWN": "Đã tắt"
     }
   }

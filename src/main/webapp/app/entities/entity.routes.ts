@@ -76,6 +76,16 @@ const routes: Routes = [
     data: { pageTitle: 'lotteryApp.roleFunctionAction.home.title' },
     loadChildren: () => import('./role-function-action/role-function-action.routes'),
   },
+  {
+    path: 'level-deposits',
+    data: { pageTitle: 'lotteryApp.levelDeposits.home.title' },
+    loadChildren: () => import('./level-deposits/level-deposits.routes'),
+  },
+  {
+    path: 'level-deposits-result',
+    data: { pageTitle: 'lotteryApp.levelDepositsResult.home.title' },
+    loadChildren: () => import('./level-deposits-result/level-deposits-result.routes'),
+  },
   /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
 ];
 

@@ -26,8 +26,8 @@
     <include file="config/liquibase/changelog/20240930142921_added_entity_Functions.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20240930143021_added_entity_Actions.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20240930143121_added_entity_RoleFunctionAction.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20241010152418_added_entity_LevelDeposits.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20241010152419_added_entity_LevelDepositsResult.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930141721_added_entity_LevelDeposits.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240930141821_added_entity_LevelDepositsResult.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
