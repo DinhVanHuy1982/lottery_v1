@@ -8,6 +8,10 @@
 @import '@ng-select/ng-select/themes/material.theme.css';
 @import '@ng-select/ng-select/themes/default.theme.css';
 
+/* app.component.css */
+
+@import '../../../node_modules/ckeditor5/dist/ckeditor5.css';
+
 @font-face {
   font-family: 'Inter';
   src: url('/content/fonts/Inter-Regular.woff2') format('woff2');

@@ -11,61 +11,138 @@
     </div>
   </div>
   <div class="body">
-    <div class="article">
-      <div class="row">
-        <div class="col">
-          <label class="form-label">Tiêu đề bài viết&nbsp;<span style="color: red">*</span></label>
-          <input type="text" [placeholder]="'Nhập tiêu đề bài viết'" trim formControlName="docSymbols" class="form-control" />
+    <form [formGroup]="formArticle" (ngSubmit)="onSubmit()">
+      <div class="article">
+        <div class="row">
+          <div class="col">
+            <label class="form-label">Tiêu đề bài viết&nbsp;<span style="color: red">*</span></label>
+            <input type="text" [placeholder]="'Nhập tiêu đề bài viết'" formControlName="title" trim class="form-control" />
+          </div>
+          <div class="col">
+            <label class="form-label">Tên bài viết&nbsp;<span style="color: red">*</span></label>
+            <input type="text" [placeholder]="'Nhập tên bài viết'" formControlName="name" trim class="form-control" />
+          </div>
         </div>
-        <div class="col">
-          <label class="form-label">Nhóm bài viết&nbsp;<span style="color: red">*</span></label>
-          <ng-select
-            [items]="listArticleGroup"
-            bindValue="code"
-            bindLabel="name"
-            [searchable]="true"
-            [clearable]="true"
-            placeholder="Nhóm bài viết"
-          >
-          </ng-select>
+        <div class="row">
+          <div class="col">
+            <label class="form-label">Nhóm bài viết&nbsp;<span style="color: red">*</span></label>
+            <ng-select
+              [items]="listArticleGroup"
+              bindValue="code"
+              bindLabel="name"
+              [searchable]="true"
+              [clearable]="true"
+              placeholder="Nhóm bài viết"
+              formControlName="articleGroupCode"
+            >
+            </ng-select>
+          </div>
+          <div class="col">
+            <label class="form-label">Tổng số giải thưởng&nbsp;<span style="color: red">*</span></label>
+            <input type="text" [placeholder]="'Nhập tổng số giải thưởng'" formControlName="numberPrize" trim class="form-control" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label class="form-label">Số lựa chọn đánh&nbsp;<span style="color: red">*</span></label>
+            <input type="text" formControlName="numberChoice" [placeholder]="'Nhập số lượng lựa chọn đánh'" class="form-control" />
+          </div>
+          <div class="col">
+            <label class="form-label">Số chữ số đánh&nbsp;<span style="color: red">*</span></label>
+            <input type="text" formControlName="numberOfDigits" [placeholder]="'Nhập số chữ số đánh'" trim class="form-control" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label class="form-label">Thời gian bắt đầu quay&nbsp;<span style="color: red">*</span></label>
+            <nz-time-picker
+              class="form-control"
+              id="article_start_time"
+              nzFormat="HH:mm"
+              [nzPlaceHolder]="'Thời gian bắt đầu'"
+              [(ngModel)]="startTime"
+              [ngModelOptions]="{ standalone: true }"
+            ></nz-time-picker>
+          </div>
+          <div class="col">
+            <label class="form-label">Thời gian kết thúc quay&nbsp;<span style="color: red">*</span></label>
+            <nz-time-picker
+              class="form-control"
+              id="article_end_time"
+              nzFormat="HH:mm"
+              [nzPlaceHolder]="'Thời gian kết thúc'"
+              [(ngModel)]="endTime"
+              [ngModelOptions]="{ standalone: true }"
+            ></nz-time-picker>
+          </div>
+        </div>
+        <div class="config-level-deposits">
+          <table>
+            <tr>
+              <th>STT</th>
+              <th>Tên lựa chọn đánh</th>
+              <th>Giá lựa chọn</th>
+              <th></th>
+            </tr>
+            <tbody formArrayName="levelDeposits">
+              <tr *ngFor="let item of levelDeposits.controls; let index = index" [formGroupName]="index">
+                <td>{{ index + 1 }}</td>
+                <td>
+                  <input class="form-control" formControlName="name" />
+                </td>
+                <td>
+                  <input class="form-control" formControlName="description" />
+                </td>
+                <td>
+                  <button class="form-control" (click)="removeItem(index)">Xóa</button>
+                </td>
+              </tr>
+            </tbody>
+            <tr class="add-level-deposits">
+              <td class="btn-add" (click)="addItem()">Thêm lựa chọn đánh</td>
+            </tr>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col">
+            <textarea class="form-control" placeholder="Nhập nội dung bài viết" formControlName="content"></textarea>
+          </div>
+        </div>
+        <div class="config-lottery">
+          <div class="add-config-lottery">
+            <div class="title-detail-lottery">Giới thiệu bài viết</div>
+            <button class="btn btn-add" (click)="addConfigLottery()">Thêm mới giới thiệu</button>
+          </div>
+          <div class="total-lottery">
+            Tổng số giải thưởng <span class="total">{{ totalIntroduce }}</span>
+          </div>
+          <div class="grid">
+            <ag-grid-angular
+              #agGrid
+              [suppressRowTransform]="true"
+              [tooltipShowDelay]="0"
+              [suppressRowClickSelection]="true"
+              style="width: 100%; height: 500px"
+              class="ag-theme-balham"
+              [rowData]="rowData"
+              [columnDefs]="columnDefs"
+              [headerHeight]="rowHeight"
+              [suppressMovableColumns]="true"
+              [rowHeight]="rowHeight"
+              (gridReady)="onGridReady($event)"
+              (gridSizeChanged)="gridSizeChanged($event)"
+              [enableCellTextSelection]="true"
+            >
+            </ag-grid-angular>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <label class="form-label">Số lựa chọn đánh&nbsp;<span style="color: red">*</span></label>
-          <input type="text" [placeholder]="'Nhập số lượng lựa chọn đánh'" trim formControlName="docSymbols" class="form-control" />
-        </div>
-        <div class="col">
-          <label class="form-label">Số chữ số đánh&nbsp;<span style="color: red">*</span></label>
-          <input type="text" [placeholder]="'Nhập số chữ số đánh'" trim formControlName="docSymbols" class="form-control" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <label class="form-label">Thời gian bắt đầu quay&nbsp;<span style="color: red">*</span></label>
-          <nz-time-picker
-            class="form-control"
-            id="article_start_time"
-            nzFormat="HH:mm"
-            [nzPlaceHolder]="'Thời gian bắt đầu'"
-          ></nz-time-picker>
-        </div>
-        <div class="col">
-          <label class="form-label">Thời gian kết thúc quay&nbsp;<span style="color: red">*</span></label>
-          <nz-time-picker
-            class="form-control"
-            id="article_end_time"
-            nzFormat="HH:mm"
-            [nzPlaceHolder]="'Thời gian kết thúc'"
-          ></nz-time-picker>
-        </div>
-      </div>
-    </div>
+    </form>
   </div>
   <div class="modal-footer">
     <div class="btn-action">
       <button type="button" class="btn-md btn-gray boxShadow" (click)="close()">Hủy bỏ</button>
-      <button type="button" class="btn-md btn-or boxShadow" (click)="submit()">Lưu lại</button>
+      <button type="button" class="btn-md btn-or boxShadow" (click)="onSubmit()">Lưu lại</button>
     </div>
   </div>
 </div>

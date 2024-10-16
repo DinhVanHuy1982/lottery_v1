@@ -27,6 +27,10 @@ public class LevelDeposits implements Serializable {
     @Column(name = "code", length = 50)
     private String code;
 
+    @Size(max = 500)
+    @Column(name = "name", length = 500)
+    private String name;
+
     @Column(name = "min_price")
     private Long minPrice;
 
@@ -119,6 +123,14 @@ public class LevelDeposits implements Serializable {
 
     public void setArticleCode(String articleCode) {
         this.articleCode = articleCode;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

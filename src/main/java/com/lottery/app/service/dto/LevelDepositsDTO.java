@@ -16,6 +16,9 @@ public class LevelDepositsDTO implements Serializable {
     @Size(max = 50)
     private String code;
 
+    @Size(max = 500)
+    private String name;
+
     private Long minPrice;
 
     @Size(max = 50)
@@ -106,5 +109,13 @@ public class LevelDepositsDTO implements Serializable {
             ", updateTime='" + getUpdateTime() + "'" +
             ", articleCode='" + getArticleCode() + "'" +
             "}";
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -10,5 +10,25 @@
     .col {
       padding: unset;
     }
+    .config-level-deposits {
+      .add-level-deposits {
+        .btn-add {
+          font-size: 13px;
+          font-weight: 400;
+          border: 1px solid #e15a1d;
+          color: #e15a1d;
+          border-radius: 12px;
+          width: max-content;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          height: max-content;
+          padding: 0 5px;
+          margin-bottom: 12px;
+        }
+      }
+      .add-config-lottery {
+      }
+    }
   }
 }
