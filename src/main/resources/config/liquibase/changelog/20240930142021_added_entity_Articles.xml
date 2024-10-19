@@ -85,4 +85,9 @@
             </column>
         </addColumn>
     </changeSet>
+    <changeSet id="20240930142021-3-data" author="admin">
+        <addColumn tableName="articles">
+            <column name="number_prize" type="numeric"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

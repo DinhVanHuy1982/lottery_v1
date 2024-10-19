@@ -32,5 +32,10 @@ export default class AppComponent {
     registerLocaleData(locale);
     iconLibrary.addIcons(...fontAwesomeIcons);
     dpConfig.minDate = { year: dayjs().subtract(100, 'year').year(), month: 1, day: 1 };
+    trackerService.subscribe({
+      next: data => {
+        console.log('Received data: ', data);
+      },
+    });
   }
 }

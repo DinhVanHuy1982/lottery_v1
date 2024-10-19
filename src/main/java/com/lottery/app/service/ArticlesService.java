@@ -1,6 +1,9 @@
 package com.lottery.app.service;
 
+import com.lottery.app.config.ServiceResult;
 import com.lottery.app.service.dto.ArticlesDTO;
+import com.lottery.app.service.dto.SearchDTO;
+import com.lottery.app.service.dto.body.search.ArticlesSearchDTO;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -55,4 +58,8 @@ public interface ArticlesService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    ServiceResult<String> createUpdateAriticle(ArticlesDTO articlesDTO);
+
+    ServiceResult<Page<ArticlesDTO>> searchArticles(SearchDTO<ArticlesSearchDTO> searchDTO);
 }

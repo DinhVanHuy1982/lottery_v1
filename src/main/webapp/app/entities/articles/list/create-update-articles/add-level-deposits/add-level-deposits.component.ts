@@ -11,16 +11,19 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { FileDetailComponent } from '../../../../../shared/common/file-detail/file-detail.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { TYPE_MESSAGE } from '../../../../../service/utils/constants';
+import { MessagePipe } from '../../../../../shared/message.pipe';
 
 @Component({
   selector: 'jhi-add-level-deposits',
   standalone: true,
-  imports: [AgGridAngular, NgIf, NgSelectModule, NzTimePickerComponent, ReactiveFormsModule, NgForOf, CKEditorModule],
+  imports: [AgGridAngular, NgIf, NgSelectModule, NzTimePickerComponent, ReactiveFormsModule, NgForOf, CKEditorModule, MessagePipe],
   templateUrl: './add-level-deposits.component.html',
   styleUrl: './add-level-deposits.component.scss',
 })
 export class AddLevelDepositsComponent implements OnInit {
   formIntroduceArticle: FormGroup;
+  TYPE_MESSAGE = TYPE_MESSAGE;
 
   // file upload
   lstUrlImgUpdate: any;
@@ -86,7 +89,7 @@ export class AddLevelDepositsComponent implements OnInit {
       id: new FormControl(null, { validators: [] }),
       title: new FormControl('', { validators: [Validators.required, Validators.maxLength(500)] }),
       name: new FormControl('', { validators: [Validators.required, Validators.maxLength(50)] }),
-      content: new FormControl('', { validators: [Validators.required, Validators.maxLength(2000)] }),
+      content: new FormControl('', { validators: [Validators.maxLength(2000)] }),
     });
   }
 
@@ -107,6 +110,7 @@ export class AddLevelDepositsComponent implements OnInit {
 
   submit() {
     console.log('Value form : ', this.formIntroduceArticle?.value);
+    this.dialogRef.close({ status: '00', data: this.formIntroduceArticle.value });
   }
 
   imageUrls: string[] = [];

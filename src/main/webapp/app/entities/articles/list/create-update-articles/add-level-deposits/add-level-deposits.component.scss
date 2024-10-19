@@ -1,8 +1,27 @@
+.body {
+  .col {
+    padding: 0 !important;
+  }
+  .row {
+    margin: 0 !important;
+    gap: 8px;
+  }
+  .form-add {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .contentQuestionDis {
+    min-height: 700px;
+  }
+}
+
 .upload-avatar {
   .list-image-selected {
     display: flex;
     margin-top: 10px;
-
+    flex-wrap: wrap;
+    gap: 10px;
     .img-item {
       margin-right: 10px;
       position: relative;
@@ -47,6 +66,13 @@
       width: 100px;
       height: 100px;
       border-radius: 6px;
+    }
+  }
+}
+:host::ng-deep {
+  .contentQuestionDis {
+    .ck.ck-content {
+      min-height: 200px;
     }
   }
 }

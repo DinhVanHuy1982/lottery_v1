@@ -50,103 +50,12 @@ public class ArticleGroupResource {
     }
 
     /**
-     * {@code POST  /article-groups} : Create a new articleGroup.
-     *
-     * @param articleGroupDTO the articleGroupDTO to create.
-     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new articleGroupDTO, or with status {@code 400 (Bad Request)} if the articleGroup has already an ID.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
-     */
-    @PostMapping("")
-    public ResponseEntity<ArticleGroupDTO> createArticleGroup(@Valid @RequestBody ArticleGroupDTO articleGroupDTO)
-        throws URISyntaxException {
-        log.debug("REST request to save ArticleGroup : {}", articleGroupDTO);
-        if (articleGroupDTO.getId() != null) {
-            throw new BadRequestAlertException("A new articleGroup cannot already have an ID", ENTITY_NAME, "idexists");
-        }
-        ArticleGroupDTO result = articleGroupService.save(articleGroupDTO);
-        return ResponseEntity
-            .created(new URI("/api/article-groups/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
-            .body(result);
-    }
-
-    /**
-     * {@code PUT  /article-groups/:id} : Updates an existing articleGroup.
-     *
-     * @param id the id of the articleGroupDTO to save.
-     * @param articleGroupDTO the articleGroupDTO to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated articleGroupDTO,
-     * or with status {@code 400 (Bad Request)} if the articleGroupDTO is not valid,
-     * or with status {@code 500 (Internal Server Error)} if the articleGroupDTO couldn't be updated.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
-     */
-    @PutMapping("/{id}")
-    public ResponseEntity<ArticleGroupDTO> updateArticleGroup(
-        @PathVariable(value = "id", required = false) final Long id,
-        @Valid @RequestBody ArticleGroupDTO articleGroupDTO
-    ) throws URISyntaxException {
-        log.debug("REST request to update ArticleGroup : {}, {}", id, articleGroupDTO);
-        if (articleGroupDTO.getId() == null) {
-            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }
-        if (!Objects.equals(id, articleGroupDTO.getId())) {
-            throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
-        }
-
-        if (!articleGroupRepository.existsById(id)) {
-            throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
-        }
-
-        ArticleGroupDTO result = articleGroupService.update(articleGroupDTO);
-        return ResponseEntity
-            .ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, articleGroupDTO.getId().toString()))
-            .body(result);
-    }
-
-    /**
-     * {@code PATCH  /article-groups/:id} : Partial updates given fields of an existing articleGroup, field will ignore if it is null
-     *
-     * @param id the id of the articleGroupDTO to save.
-     * @param articleGroupDTO the articleGroupDTO to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated articleGroupDTO,
-     * or with status {@code 400 (Bad Request)} if the articleGroupDTO is not valid,
-     * or with status {@code 404 (Not Found)} if the articleGroupDTO is not found,
-     * or with status {@code 500 (Internal Server Error)} if the articleGroupDTO couldn't be updated.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
-     */
-    @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
-    public ResponseEntity<ArticleGroupDTO> partialUpdateArticleGroup(
-        @PathVariable(value = "id", required = false) final Long id,
-        @NotNull @RequestBody ArticleGroupDTO articleGroupDTO
-    ) throws URISyntaxException {
-        log.debug("REST request to partial update ArticleGroup partially : {}, {}", id, articleGroupDTO);
-        if (articleGroupDTO.getId() == null) {
-            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }
-        if (!Objects.equals(id, articleGroupDTO.getId())) {
-            throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
-        }
-
-        if (!articleGroupRepository.existsById(id)) {
-            throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
-        }
-
-        Optional<ArticleGroupDTO> result = articleGroupService.partialUpdate(articleGroupDTO);
-
-        return ResponseUtil.wrapOrNotFound(
-            result,
-            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, articleGroupDTO.getId().toString())
-        );
-    }
-
-    /**
      * {@code GET  /article-groups} : get all the articleGroups.
      *
      * @param pageable the pagination information.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of articleGroups in body.
      */
-    @GetMapping("")
+    @GetMapping("/QLNVB")
     public ResponseEntity<List<ArticleGroupDTO>> getAllArticleGroups(@org.springdoc.core.annotations.ParameterObject Pageable pageable) {
         log.debug("REST request to get a page of ArticleGroups");
         Page<ArticleGroupDTO> page = articleGroupService.findAll(pageable);
@@ -160,7 +69,7 @@ public class ArticleGroupResource {
      * @param id the id of the articleGroupDTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the articleGroupDTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/{id}")
+    @GetMapping("/QLNVB/{id}")
     public ResponseEntity<ArticleGroupDTO> getArticleGroup(@PathVariable("id") Long id) {
         log.debug("REST request to get ArticleGroup : {}", id);
         Optional<ArticleGroupDTO> articleGroupDTO = articleGroupService.findOne(id);
@@ -173,7 +82,7 @@ public class ArticleGroupResource {
      * @param id the id of the articleGroupDTO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/QLNVB/{id}")
     public ResponseEntity<Void> deleteArticleGroup(@PathVariable("id") Long id) {
         log.debug("REST request to delete ArticleGroup : {}", id);
         articleGroupService.delete(id);

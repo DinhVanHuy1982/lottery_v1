@@ -80,4 +80,10 @@
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>
+
+    <changeSet id="20240930141821-2-data" author="admin">
+        <addColumn tableName="article_group">
+            <column name="name" type="VARCHAR(500)"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

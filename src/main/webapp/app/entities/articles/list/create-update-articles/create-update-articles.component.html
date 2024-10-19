@@ -17,10 +17,61 @@
           <div class="col">
             <label class="form-label">Tiêu đề bài viết&nbsp;<span style="color: red">*</span></label>
             <input type="text" [placeholder]="'Nhập tiêu đề bài viết'" formControlName="title" trim class="form-control" />
+            <div
+              class="label-error"
+              *ngIf="formArticle.get('title')!.invalid && (formArticle.get('title')!.dirty || formArticle.get('title')!.touched)"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M14.6654 7.99935C14.6654 4.31745 11.6806 1.33268 7.9987 1.33268C4.3168 1.33268 1.33203 4.31745 1.33203 7.99935C1.33203 11.6812 4.3168 14.666 7.9987 14.666C11.6806 14.666 14.6654 11.6812 14.6654 7.99935Z"
+                  stroke="#DE1A1A"
+                />
+                <path
+                  d="M8.16081 11.332V7.9987C8.16081 7.68443 8.16081 7.52729 8.06318 7.42966C7.96555 7.33203 7.80841 7.33203 7.49414 7.33203"
+                  stroke="#DE1A1A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M7.99401 5.33203H8" stroke="#DE1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <small *ngIf="formArticle.get('title')?.errors?.required" class="form-text text-err-validate">{{
+                'Tiêu đề bài viết' | message: TYPE_MESSAGE.REQUIRED
+              }}</small>
+              <small *ngIf="formArticle.get('title')?.errors?.maxlength" class="form-text text-err-validate">{{
+                'Tiêu đề bài viết' | message: TYPE_MESSAGE.MAX_LENGTH : '50'
+              }}</small>
+            </div>
           </div>
           <div class="col">
             <label class="form-label">Tên bài viết&nbsp;<span style="color: red">*</span></label>
             <input type="text" [placeholder]="'Nhập tên bài viết'" formControlName="name" trim class="form-control" />
+            <div
+              class="label-error"
+              *ngIf="formArticle.get('name')!.invalid && (formArticle.get('name')!.dirty || formArticle.get('name')!.touched)"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M14.6654 7.99935C14.6654 4.31745 11.6806 1.33268 7.9987 1.33268C4.3168 1.33268 1.33203 4.31745 1.33203 7.99935C1.33203 11.6812 4.3168 14.666 7.9987 14.666C11.6806 14.666 14.6654 11.6812 14.6654 7.99935Z"
+                  stroke="#DE1A1A"
+                />
+                <path
+                  d="M8.16081 11.332V7.9987C8.16081 7.68443 8.16081 7.52729 8.06318 7.42966C7.96555 7.33203 7.80841 7.33203 7.49414 7.33203"
+                  stroke="#DE1A1A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M7.99401 5.33203H8" stroke="#DE1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <small *ngIf="formArticle.get('name')?.errors?.required" class="form-text text-err-validate">{{
+                'Tên bài viết' | message: TYPE_MESSAGE.REQUIRED
+              }}</small>
+              <small *ngIf="formArticle.get('name')?.errors?.maxlength" class="form-text text-err-validate">{{
+                'Tên bài viết' | message: TYPE_MESSAGE.MAX_LENGTH : '50'
+              }}</small>
+              <small *ngIf="formArticle.get('name')?.errors?.duplicate" class="form-text text-err-validate">{{
+                'Tên bài viết' | message: TYPE_MESSAGE.EXIST
+              }}</small>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -36,20 +87,134 @@
               formControlName="articleGroupCode"
             >
             </ng-select>
+            <div
+              class="label-error"
+              *ngIf="
+                formArticle.get('articleGroupCode')!.invalid &&
+                (formArticle.get('articleGroupCode')!.dirty || formArticle.get('articleGroupCode')!.touched)
+              "
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M14.6654 7.99935C14.6654 4.31745 11.6806 1.33268 7.9987 1.33268C4.3168 1.33268 1.33203 4.31745 1.33203 7.99935C1.33203 11.6812 4.3168 14.666 7.9987 14.666C11.6806 14.666 14.6654 11.6812 14.6654 7.99935Z"
+                  stroke="#DE1A1A"
+                />
+                <path
+                  d="M8.16081 11.332V7.9987C8.16081 7.68443 8.16081 7.52729 8.06318 7.42966C7.96555 7.33203 7.80841 7.33203 7.49414 7.33203"
+                  stroke="#DE1A1A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M7.99401 5.33203H8" stroke="#DE1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <small *ngIf="formArticle.get('articleGroupCode')?.errors?.required" class="form-text text-err-validate">{{
+                'Nhóm bài viết' | message: TYPE_MESSAGE.REQUIRED
+              }}</small>
+            </div>
           </div>
           <div class="col">
             <label class="form-label">Tổng số giải thưởng&nbsp;<span style="color: red">*</span></label>
-            <input type="text" [placeholder]="'Nhập tổng số giải thưởng'" formControlName="numberPrize" trim class="form-control" />
+            <input type="number" formControlName="numberPrize" [placeholder]="'Nhập tổng số giải thưởng'" trim class="form-control" />
+            <div
+              class="label-error"
+              *ngIf="
+                formArticle.get('numberPrize')!.invalid &&
+                (formArticle.get('numberPrize')!.dirty || formArticle.get('numberPrize')!.touched)
+              "
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M14.6654 7.99935C14.6654 4.31745 11.6806 1.33268 7.9987 1.33268C4.3168 1.33268 1.33203 4.31745 1.33203 7.99935C1.33203 11.6812 4.3168 14.666 7.9987 14.666C11.6806 14.666 14.6654 11.6812 14.6654 7.99935Z"
+                  stroke="#DE1A1A"
+                />
+                <path
+                  d="M8.16081 11.332V7.9987C8.16081 7.68443 8.16081 7.52729 8.06318 7.42966C7.96555 7.33203 7.80841 7.33203 7.49414 7.33203"
+                  stroke="#DE1A1A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M7.99401 5.33203H8" stroke="#DE1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <small *ngIf="formArticle.get('numberPrize')?.errors?.required" class="form-text text-err-validate">{{
+                'Tổng số giải thưởng' | message: TYPE_MESSAGE.REQUIRED
+              }}</small>
+              <small *ngIf="formArticle.get('numberPrize')?.errors?.pattern" class="form-text text-err-validate">{{
+                'Tổng số giải thưởng' | message: TYPE_MESSAGE.NOT_VALID
+              }}</small>
+              <small *ngIf="formArticle.get('numberPrize')?.errors?.maxlength" class="form-text text-err-validate">{{
+                'Tổng số giải thưởng' | message: TYPE_MESSAGE.MAX_LENGTH : '5'
+              }}</small>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <label class="form-label">Số lựa chọn đánh&nbsp;<span style="color: red">*</span></label>
-            <input type="text" formControlName="numberChoice" [placeholder]="'Nhập số lượng lựa chọn đánh'" class="form-control" />
+            <input type="number" formControlName="numberChoice" [placeholder]="'Nhập số lượng lựa chọn đánh'" class="form-control" />
+            <div
+              class="label-error"
+              *ngIf="
+                formArticle.get('numberChoice')!.invalid &&
+                (formArticle.get('numberChoice')!.dirty || formArticle.get('numberChoice')!.touched)
+              "
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M14.6654 7.99935C14.6654 4.31745 11.6806 1.33268 7.9987 1.33268C4.3168 1.33268 1.33203 4.31745 1.33203 7.99935C1.33203 11.6812 4.3168 14.666 7.9987 14.666C11.6806 14.666 14.6654 11.6812 14.6654 7.99935Z"
+                  stroke="#DE1A1A"
+                />
+                <path
+                  d="M8.16081 11.332V7.9987C8.16081 7.68443 8.16081 7.52729 8.06318 7.42966C7.96555 7.33203 7.80841 7.33203 7.49414 7.33203"
+                  stroke="#DE1A1A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M7.99401 5.33203H8" stroke="#DE1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <small *ngIf="formArticle.get('numberChoice')?.errors?.required" class="form-text text-err-validate">{{
+                'Số lựa chọn đánh' | message: TYPE_MESSAGE.REQUIRED
+              }}</small>
+              <small *ngIf="formArticle.get('numberChoice')?.errors?.maxlength" class="form-text text-err-validate">{{
+                'Số lựa chọn đánh' | message: TYPE_MESSAGE.MAX_LENGTH : '5'
+              }}</small>
+              <small *ngIf="formArticle.get('numberChoice')?.errors?.pattern" class="form-text text-err-validate">{{
+                'Số lựa chọn đánh' | message: TYPE_MESSAGE.NOT_VALID
+              }}</small>
+            </div>
           </div>
           <div class="col">
             <label class="form-label">Số chữ số đánh&nbsp;<span style="color: red">*</span></label>
-            <input type="text" formControlName="numberOfDigits" [placeholder]="'Nhập số chữ số đánh'" trim class="form-control" />
+            <input type="number" formControlName="numberOfDigits" [placeholder]="'Nhập số chữ số đánh'" trim class="form-control" />
+            <div
+              class="label-error"
+              *ngIf="
+                formArticle.get('numberOfDigits')!.invalid &&
+                (formArticle.get('numberOfDigits')!.dirty || formArticle.get('numberOfDigits')!.touched)
+              "
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M14.6654 7.99935C14.6654 4.31745 11.6806 1.33268 7.9987 1.33268C4.3168 1.33268 1.33203 4.31745 1.33203 7.99935C1.33203 11.6812 4.3168 14.666 7.9987 14.666C11.6806 14.666 14.6654 11.6812 14.6654 7.99935Z"
+                  stroke="#DE1A1A"
+                />
+                <path
+                  d="M8.16081 11.332V7.9987C8.16081 7.68443 8.16081 7.52729 8.06318 7.42966C7.96555 7.33203 7.80841 7.33203 7.49414 7.33203"
+                  stroke="#DE1A1A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M7.99401 5.33203H8" stroke="#DE1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <small *ngIf="formArticle.get('numberOfDigits')?.errors?.required" class="form-text text-err-validate">{{
+                'Số chữ số đánh' | message: TYPE_MESSAGE.REQUIRED
+              }}</small>
+              <small *ngIf="formArticle.get('numberOfDigits')?.errors?.pattern" class="form-text text-err-validate">{{
+                'Số chữ số đánh' | message: TYPE_MESSAGE.NOT_VALID
+              }}</small>
+              <small *ngIf="formArticle.get('numberOfDigits')?.errors?.maxlength" class="form-text text-err-validate">{{
+                'Số chữ số đánh' | message: TYPE_MESSAGE.MAX_LENGTH : '5'
+              }}</small>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -62,7 +227,34 @@
               [nzPlaceHolder]="'Thời gian bắt đầu'"
               [(ngModel)]="startTime"
               [ngModelOptions]="{ standalone: true }"
+              (ngModelChange)="blurTime('start')"
             ></nz-time-picker>
+            <div
+              class="label-error"
+              *ngIf="
+                formArticle.get('startTime')!.invalid && (formArticle.get('startTime')!.dirty || formArticle.get('startTime')!.touched)
+              "
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M14.6654 7.99935C14.6654 4.31745 11.6806 1.33268 7.9987 1.33268C4.3168 1.33268 1.33203 4.31745 1.33203 7.99935C1.33203 11.6812 4.3168 14.666 7.9987 14.666C11.6806 14.666 14.6654 11.6812 14.6654 7.99935Z"
+                  stroke="#DE1A1A"
+                />
+                <path
+                  d="M8.16081 11.332V7.9987C8.16081 7.68443 8.16081 7.52729 8.06318 7.42966C7.96555 7.33203 7.80841 7.33203 7.49414 7.33203"
+                  stroke="#DE1A1A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M7.99401 5.33203H8" stroke="#DE1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <small *ngIf="formArticle.get('startTime')?.errors?.required" class="form-text text-err-validate">{{
+                'Thời gian bắt đầu' | message: TYPE_MESSAGE.REQUIRED
+              }}</small>
+              <small *ngIf="formArticle.get('startTime')?.errors?.pattern" class="form-text text-err-validate">{{
+                'Thời gian bắt đầu' | message: TYPE_MESSAGE.NOT_VALID
+              }}</small>
+            </div>
           </div>
           <div class="col">
             <label class="form-label">Thời gian kết thúc quay&nbsp;<span style="color: red">*</span></label>
@@ -73,28 +265,94 @@
               [nzPlaceHolder]="'Thời gian kết thúc'"
               [(ngModel)]="endTime"
               [ngModelOptions]="{ standalone: true }"
+              (ngModelChange)="blurTime('end')"
             ></nz-time-picker>
+            <div
+              class="label-error"
+              *ngIf="formArticle.get('endTime')!.invalid && (formArticle.get('endTime')!.dirty || formArticle.get('endTime')!.touched)"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M14.6654 7.99935C14.6654 4.31745 11.6806 1.33268 7.9987 1.33268C4.3168 1.33268 1.33203 4.31745 1.33203 7.99935C1.33203 11.6812 4.3168 14.666 7.9987 14.666C11.6806 14.666 14.6654 11.6812 14.6654 7.99935Z"
+                  stroke="#DE1A1A"
+                />
+                <path
+                  d="M8.16081 11.332V7.9987C8.16081 7.68443 8.16081 7.52729 8.06318 7.42966C7.96555 7.33203 7.80841 7.33203 7.49414 7.33203"
+                  stroke="#DE1A1A"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M7.99401 5.33203H8" stroke="#DE1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <small *ngIf="formArticle.get('endTime')?.errors?.required" class="form-text text-err-validate">{{
+                'Thời gian kết thúc' | message: TYPE_MESSAGE.REQUIRED
+              }}</small>
+              <small *ngIf="formArticle.get('endTime')?.errors?.pattern" class="form-text text-err-validate">{{
+                'Thời gian kết thúc' | message: TYPE_MESSAGE.NOT_VALID
+              }}</small>
+            </div>
           </div>
         </div>
         <div class="config-level-deposits">
-          <table>
-            <tr>
-              <th>STT</th>
-              <th>Tên lựa chọn đánh</th>
-              <th>Giá lựa chọn</th>
-              <th></th>
-            </tr>
+          <table class="table-config">
+            <thead>
+              <tr>
+                <th class="sttHD">STT</th>
+                <th class="name-choiceHD">Tên lựa chọn đánh</th>
+                <th class="price-choiceHD">Giá lựa chọn</th>
+                <th class="descriptionHD">Mô tả</th>
+                <th class="action"></th>
+              </tr>
+            </thead>
             <tbody formArrayName="levelDeposits">
-              <tr *ngFor="let item of levelDeposits.controls; let index = index" [formGroupName]="index">
-                <td>{{ index + 1 }}</td>
-                <td>
-                  <input class="form-control" formControlName="name" />
+              <tr *ngFor="let item of levelDeposits.controls; let index = index" [formGroupName]="index" class="rowData">
+                <td class="stt">{{ index + 1 }}</td>
+                <td class="name">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'error-validate': item.get('name')!.invalid && (item.get('name')!.dirty || item.get('name')!.touched) }"
+                    placeholder="Tên lựa chọn đánh"
+                    formControlName="name"
+                  />
                 </td>
-                <td>
-                  <input class="form-control" formControlName="description" />
+                <td class="price">
+                  <input
+                    class="form-control"
+                    [ngClass]="{
+                      'error-validate': item.get('minPrice')!.invalid && (item.get('minPrice')!.dirty || item.get('minPrice')!.touched)
+                    }"
+                    placeholder="Giá lựa chọn"
+                    formControlName="minPrice"
+                  />
                 </td>
-                <td>
-                  <button class="form-control" (click)="removeItem(index)">Xóa</button>
+                <td class="description">
+                  <input
+                    class="form-control"
+                    [ngClass]="{
+                      'error-validate':
+                        item.get('description')!.invalid && (item.get('description')!.dirty || item.get('description')!.touched)
+                    }"
+                    placeholder="Mô tả"
+                    formControlName="description"
+                  />
+                </td>
+                <td class="action">
+                  <button class="form-control" (click)="removeItem(index)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M13 3.66602L12.5868 10.3494C12.4813 12.057 12.4285 12.9108 12.0005 13.5246C11.7889 13.8281 11.5164 14.0842 11.2005 14.2767C10.5614 14.666 9.70599 14.666 7.99516 14.666C6.28208 14.666 5.42554 14.666 4.78604 14.276C4.46987 14.0831 4.19733 13.8266 3.98579 13.5226C3.55792 12.9077 3.5063 12.0528 3.40307 10.3428L3 3.66602"
+                        stroke="#DE1A1A"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M2 3.66536H14M10.7038 3.66536L10.2487 2.72652C9.94638 2.10287 9.79522 1.79105 9.53448 1.59657C9.47664 1.55343 9.4154 1.51506 9.35135 1.48183C9.06261 1.33203 8.71608 1.33203 8.02302 1.33203C7.31255 1.33203 6.95732 1.33203 6.66379 1.48811C6.59873 1.5227 6.53666 1.56263 6.4782 1.60748C6.21443 1.80983 6.06709 2.13307 5.7724 2.77954L5.36862 3.66536"
+                        stroke="#DE1A1A"
+                        stroke-linecap="round"
+                      />
+                      <path d="M6.33398 10.998L6.33398 6.99805" stroke="#DE1A1A" stroke-linecap="round" />
+                      <path d="M9.66602 10.998L9.66602 6.99805" stroke="#DE1A1A" stroke-linecap="round" />
+                    </svg>
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -105,7 +363,14 @@
         </div>
         <div class="row">
           <div class="col">
-            <textarea class="form-control" placeholder="Nhập nội dung bài viết" formControlName="content"></textarea>
+            <ckeditor
+              class="contentQuestionDis"
+              [editor]="Editor"
+              (change)="changeMailContent()"
+              [config]="config"
+              formControlName="content"
+            >
+            </ckeditor>
           </div>
         </div>
         <div class="config-lottery">
@@ -114,7 +379,7 @@
             <button class="btn btn-add" (click)="addConfigLottery()">Thêm mới giới thiệu</button>
           </div>
           <div class="total-lottery">
-            Tổng số giải thưởng <span class="total">{{ totalIntroduce }}</span>
+            Danh sách bài giới thiệu <span class="total">{{ totalIntroduce }}</span>
           </div>
           <div class="grid">
             <ag-grid-angular

@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface LevelDepositsRepository extends JpaRepository<LevelDeposits, Long> {}
+public interface LevelDepositsRepository extends JpaRepository<LevelDeposits, Long> {
+    void deleteByArticleCode(String code);
+}

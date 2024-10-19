@@ -1,8 +1,11 @@
 package com.lottery.app.web.rest;
 
+import com.lottery.app.config.ServiceResult;
 import com.lottery.app.repository.ArticlesRepository;
 import com.lottery.app.service.ArticlesService;
 import com.lottery.app.service.dto.ArticlesDTO;
+import com.lottery.app.service.dto.SearchDTO;
+import com.lottery.app.service.dto.body.search.ArticlesSearchDTO;
 import com.lottery.app.web.rest.errors.BadRequestAlertException;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
@@ -28,7 +31,7 @@ import tech.jhipster.web.util.ResponseUtil;
  * REST controller for managing {@link com.lottery.app.domain.Articles}.
  */
 @RestController
-@RequestMapping("/api/articles")
+@RequestMapping("/api/")
 public class ArticlesResource {
 
     private final Logger log = LoggerFactory.getLogger(ArticlesResource.class);
@@ -138,17 +141,21 @@ public class ArticlesResource {
     }
 
     /**
-     * {@code GET  /articles} : get all the articles.
+     * Lấy ra danh sách các bài viết
      *
-     * @param pageable the pagination information.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of articles in body.
+     * @param searchDTO
+     * @return
+     * @throws
+     * @author DVHuy
+     * @since 10/19/2024
+     * @modifiedBy
+     * @modifiedDate
+     * @vesion 1.0
      */
-    @GetMapping("")
-    public ResponseEntity<List<ArticlesDTO>> getAllArticles(@org.springdoc.core.annotations.ParameterObject Pageable pageable) {
+    @PostMapping("QLBV/search/search-article")
+    public ServiceResult<Page<ArticlesDTO>> getAllArticles(@RequestBody SearchDTO<ArticlesSearchDTO> searchDTO) {
         log.debug("REST request to get a page of Articles");
-        Page<ArticlesDTO> page = articlesService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
-        return ResponseEntity.ok().headers(headers).body(page.getContent());
+        return this.articlesService.searchArticles(searchDTO);
     }
 
     /**
@@ -178,5 +185,22 @@ public class ArticlesResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    /**
+     * Tạo mới, cập nhật bài viết
+     *
+     * @param articlesDTO
+     * @return ServiceResult<String>
+     * @throws
+     * @author DVHuy
+     * @since 10/17/2024
+     * @modifiedBy
+     * @modifiedDate
+     * @vesion 1.0
+     */
+    @PostMapping("QLBV/create-update-article")
+    public ServiceResult<String> createUpdateArticle(@RequestBody ArticlesDTO articlesDTO) {
+        return this.articlesService.createUpdateAriticle(articlesDTO);
     }
 }

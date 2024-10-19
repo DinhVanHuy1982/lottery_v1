@@ -3,6 +3,7 @@ package com.lottery.app.service.dto;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -42,6 +43,62 @@ public class ArticlesDTO implements Serializable {
     private String timeStart;
 
     private String timeEnd;
+
+    private List<LevelDepositsDTO> levelDeposits;
+    private List<IntroduceArticleDTO> lstIntroduce;
+    private Long numberPrize;
+    private String action;
+    private Long totalLevelDeposits;
+    private Long totalIntroduceArticle;
+    private String articleGroupName;
+
+    public String getArticleGroupName() {
+        return articleGroupName;
+    }
+
+    public void setArticleGroupName(String articleGroupName) {
+        this.articleGroupName = articleGroupName;
+    }
+
+    public Long getTotalLevelDeposits() {
+        return totalLevelDeposits;
+    }
+
+    public void setTotalLevelDeposits(Long totalLevelDeposits) {
+        this.totalLevelDeposits = totalLevelDeposits;
+    }
+
+    public Long getTotalIntroduceArticle() {
+        return totalIntroduceArticle;
+    }
+
+    public void setTotalIntroduceArticle(Long totalIntroduceArticle) {
+        this.totalIntroduceArticle = totalIntroduceArticle;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public Long getNumberPrize() {
+        return numberPrize;
+    }
+
+    public void setNumberPrize(Long numberPrize) {
+        this.numberPrize = numberPrize;
+    }
+
+    public List<IntroduceArticleDTO> getLstIntroduce() {
+        return lstIntroduce;
+    }
+
+    public void setLstIntroduce(List<IntroduceArticleDTO> lstIntroduce) {
+        this.lstIntroduce = lstIntroduce;
+    }
 
     public Long getId() {
         return id;
@@ -153,6 +210,14 @@ public class ArticlesDTO implements Serializable {
             return false;
         }
         return Objects.equals(this.id, articlesDTO.id);
+    }
+
+    public List<LevelDepositsDTO> getLevelDeposits() {
+        return levelDeposits;
+    }
+
+    public void setLevelDeposits(List<LevelDepositsDTO> levelDeposits) {
+        this.levelDeposits = levelDeposits;
     }
 
     @Override

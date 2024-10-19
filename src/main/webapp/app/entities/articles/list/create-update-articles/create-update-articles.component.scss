@@ -11,6 +11,38 @@
       padding: unset;
     }
     .config-level-deposits {
+      .table-config {
+        width: 100%;
+        .sttHD,
+        .stt {
+          width: 44px;
+        }
+        .name-choiceHD,
+        .name {
+          width: calc(33% - 35px);
+        }
+        .price-choiceHD,
+        .price {
+          width: calc(33% - 35px);
+        }
+        .descriptionHD,
+        .description {
+          width: calc(33% - 35px);
+        }
+        .action {
+          width: 44px;
+        }
+
+        .rowData {
+        }
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #e8e8e8;
+        border-collapse: collapse;
+      }
       .add-level-deposits {
         .btn-add {
           font-size: 13px;
@@ -27,7 +59,31 @@
           margin-bottom: 12px;
         }
       }
-      .add-config-lottery {
+    }
+    .add-config-lottery {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .btn-add {
+        font-size: 13px;
+        font-weight: 400;
+        border: 1px solid #e15a1d;
+        color: #e15a1d;
+        border-radius: 12px;
+        width: max-content;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        height: max-content;
+        padding: 0 5px;
+      }
+    }
+    .total-lottery {
+      .total {
+        color: #e15a1d;
+        font-size: 14px;
+        font-weight: 600;
       }
     }
   }

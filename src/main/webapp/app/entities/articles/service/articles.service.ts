@@ -14,7 +14,8 @@ export type EntityArrayResponseType = HttpResponse<IArticles[]>;
 
 @Injectable({ providedIn: 'root' })
 export class ArticlesService {
-  protected resourceUrl = this.applicationConfigService.getEndpointFor('api/articles');
+  protected resourceUrl = this.applicationConfigService.getEndpointFor('api');
+  private FUNCTION_ARTICLE = '/QLBV';
 
   constructor(
     protected http: HttpClient,
@@ -72,5 +73,9 @@ export class ArticlesService {
       return [...articlesToAdd, ...articlesCollection];
     }
     return articlesCollection;
+  }
+
+  searchArticle(dataSearch: any): Observable<any> {
+    return this.http.post(this.resourceUrl + this.FUNCTION_ARTICLE + '/search/search-article', dataSearch);
   }
 }

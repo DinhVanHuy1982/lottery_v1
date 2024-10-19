@@ -11,26 +11,110 @@
     </div>
   </div>
   <div class="body">
-    <form [formGroup]="formIntroduceArticle" (ngSubmit)="submit()">
+    <form [formGroup]="formIntroduceArticle" (ngSubmit)="submit()" class="form-add">
       <div class="row">
         <div class="col">
           <label class="form-label">Tiêu đề bài viết&nbsp;<span style="color: red">*</span></label>
           <input type="text" [placeholder]="'Nhập tiêu đề bài viết'" formControlName="title" trim class="form-control" />
+          <div
+            class="label-error"
+            *ngIf="
+              formIntroduceArticle.get('title')!.invalid &&
+              (formIntroduceArticle.get('title')!.dirty || formIntroduceArticle.get('title')!.touched)
+            "
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M14.6654 7.99935C14.6654 4.31745 11.6806 1.33268 7.9987 1.33268C4.3168 1.33268 1.33203 4.31745 1.33203 7.99935C1.33203 11.6812 4.3168 14.666 7.9987 14.666C11.6806 14.666 14.6654 11.6812 14.6654 7.99935Z"
+                stroke="#DE1A1A"
+              />
+              <path
+                d="M8.16081 11.332V7.9987C8.16081 7.68443 8.16081 7.52729 8.06318 7.42966C7.96555 7.33203 7.80841 7.33203 7.49414 7.33203"
+                stroke="#DE1A1A"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path d="M7.99401 5.33203H8" stroke="#DE1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <small *ngIf="formIntroduceArticle.get('title')?.errors?.required" class="form-text text-err-validate">{{
+              'Tiêu đề bài viết' | message: TYPE_MESSAGE.REQUIRED
+            }}</small>
+            <small *ngIf="formIntroduceArticle.get('title')?.errors?.maxlength" class="form-text text-err-validate">{{
+              'Tiêu đề bài viết' | message: TYPE_MESSAGE.MAX_LENGTH : '500'
+            }}</small>
+            <!--            <small *ngIf="formIntroduceArticle.get('title')?.errors?.duplicate" class="form-text text-err-validate">{{ 'Số, ký hiệu văn bản đã tồn tại' }}</small>-->
+          </div>
         </div>
         <div class="col">
           <label class="form-label">Tên bài viết&nbsp;<span style="color: red">*</span></label>
           <input type="text" [placeholder]="'Nhập tên bài viết'" formControlName="name" trim class="form-control" />
+          <div
+            class="label-error"
+            *ngIf="
+              formIntroduceArticle.get('name')!.invalid &&
+              (formIntroduceArticle.get('name')!.dirty || formIntroduceArticle.get('name')!.touched)
+            "
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M14.6654 7.99935C14.6654 4.31745 11.6806 1.33268 7.9987 1.33268C4.3168 1.33268 1.33203 4.31745 1.33203 7.99935C1.33203 11.6812 4.3168 14.666 7.9987 14.666C11.6806 14.666 14.6654 11.6812 14.6654 7.99935Z"
+                stroke="#DE1A1A"
+              />
+              <path
+                d="M8.16081 11.332V7.9987C8.16081 7.68443 8.16081 7.52729 8.06318 7.42966C7.96555 7.33203 7.80841 7.33203 7.49414 7.33203"
+                stroke="#DE1A1A"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path d="M7.99401 5.33203H8" stroke="#DE1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <small *ngIf="formIntroduceArticle.get('name')?.errors?.required" class="form-text text-err-validate">{{
+              'Tên bài viết' | message: TYPE_MESSAGE.REQUIRED
+            }}</small>
+            <small *ngIf="formIntroduceArticle.get('name')?.errors?.maxlength" class="form-text text-err-validate">{{
+              'Tên bài viết' | message: TYPE_MESSAGE.MAX_LENGTH : '50'
+            }}</small>
+            <small *ngIf="formIntroduceArticle.get('name')?.errors?.duplicate" class="form-text text-err-validate">{{
+              'Tên bài viết' | message: TYPE_MESSAGE.EXIST
+            }}</small>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <ckeditor class="contentQuestionDis" [editor]="Editor" (change)="changeMailContent()" [config]="config" formControlName="content">
-          </ckeditor>
+          <ckeditor
+            class="contentQuestionDis"
+            [editor]="Editor"
+            (change)="changeMailContent()"
+            [config]="config"
+            formControlName="content"
+          ></ckeditor>
+          <div class="label-error" *ngIf="formIntroduceArticle.get('content')!.invalid">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M14.6654 7.99935C14.6654 4.31745 11.6806 1.33268 7.9987 1.33268C4.3168 1.33268 1.33203 4.31745 1.33203 7.99935C1.33203 11.6812 4.3168 14.666 7.9987 14.666C11.6806 14.666 14.6654 11.6812 14.6654 7.99935Z"
+                stroke="#DE1A1A"
+              />
+              <path
+                d="M8.16081 11.332V7.9987C8.16081 7.68443 8.16081 7.52729 8.06318 7.42966C7.96555 7.33203 7.80841 7.33203 7.49414 7.33203"
+                stroke="#DE1A1A"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path d="M7.99401 5.33203H8" stroke="#DE1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <small *ngIf="formIntroduceArticle.get('content')?.errors?.required" class="form-text text-err-validate">{{
+              'Nội dung bài viết' | message: TYPE_MESSAGE.REQUIRED
+            }}</small>
+            <small *ngIf="formIntroduceArticle.get('content')?.errors?.maxlength" class="form-text text-err-validate">{{
+              'Nội dung bài viết' | message: TYPE_MESSAGE.MAX_LENGTH : '2000'
+            }}</small>
+          </div>
         </div>
       </div>
-      <div class="add-file-avatar">Thêm file ảnh đại diện</div>
+      <div class="add-file-avatar">Thêm file ảnh giới thiệu</div>
       <div class="upload-avatar">
-        <label>Ảnh sản phẩm: </label><br />
+        <label>Ảnh giới thiệu: </label><br />
         <label for="upload-img-product" class="img">
           <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_58032_143468)">

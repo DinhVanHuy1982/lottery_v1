@@ -40,6 +40,9 @@ public class Articles implements Serializable {
     @Column(name = "title", length = 500)
     private String title;
 
+    @Column(name = "number_prize", length = 500)
+    private Long numberPrize;
+
     @Size(max = 2000)
     @Column(name = "content", length = 2000)
     private String content;
@@ -65,6 +68,14 @@ public class Articles implements Serializable {
     private String timeEnd;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
+
+    public Long getNumberPrize() {
+        return numberPrize;
+    }
+
+    public void setNumberPrize(Long numberPrize) {
+        this.numberPrize = numberPrize;
+    }
 
     public Long getId() {
         return this.id;

@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface PrizesRepository extends JpaRepository<Prizes, Long> {}
+public interface PrizesRepository extends JpaRepository<Prizes, Long> {
+    void deleteByArticleCode(String code);
+}
